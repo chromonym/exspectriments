@@ -32,7 +32,10 @@ public class Exspectriments implements ModInitializer {
 		
 		ItemSubGroupEvents.modifyEntriesEvent(ItemGroupIDs.SUBTAB_RESOURCES).register(content -> {
 			content.addAfter(SpectrumBlocks.RADIATING_ENDER, ExspItems.HOSTILE_APPROXIMATOR);
-			content.addAfter(SpectrumItems.LIQUID_CRYSTAL_BUCKET, ExspItems.LIQUID_TOPAZ_BUCKET);
+			content.addAfter(SpectrumItems.LIQUID_CRYSTAL_BUCKET,
+				ExspItems.LIQUID_TOPAZ_BUCKET,
+				ExspItems.LIQUID_AMETHYST_BUCKET
+			);
 		});
 
 		LOGGER.info("Hello Fabric world!");

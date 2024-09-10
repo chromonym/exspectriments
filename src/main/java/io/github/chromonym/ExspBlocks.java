@@ -18,6 +18,10 @@ public class ExspBlocks {
         new LiquidTopazFluidBlock(ExspFluids.LIQUID_TOPAZ, SpectrumBlocks.BLAZING_CRYSTAL.getDefaultState(), fluid(MapColor.CYAN).luminance((state) -> {return 11;}).replaceable()),
         "liquid_topaz"
     );
+    public static final Block LIQUID_AMETHYST = register(
+        new LiquidAmethystFluidBlock(ExspFluids.LIQUID_AMETHYST, SpectrumBlocks.BLAZING_CRYSTAL.getDefaultState(), fluid(MapColor.MAGENTA).luminance((state) -> {return 11;}).replaceable()),
+        "liquid_amethyst"
+    );
 
     // code taken from spectrum - will write more compactly later
     private static AbstractBlock.Settings fluid(MapColor mapColor) {

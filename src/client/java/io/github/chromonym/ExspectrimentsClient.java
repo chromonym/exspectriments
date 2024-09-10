@@ -15,10 +15,16 @@ public class ExspectrimentsClient implements ClientModInitializer {
 	@Override
 	public void onInitializeClient() {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
+
 		setupFluidRendering(ExspFluids.LIQUID_TOPAZ, ExspFluids.FLOWING_LIQUID_TOPAZ, "liquid_topaz", 0x00BBBB);
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_TOPAZ_SPARKLE, LitParticle.Factory::new);
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_TOPAZ_SPLASH, WaterSplashParticle.SplashFactory::new);
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_TOPAZ_FISHING, WaterSplashParticle.SplashFactory::new);
+
+		setupFluidRendering(ExspFluids.LIQUID_AMETHYST, ExspFluids.FLOWING_LIQUID_AMETHYST, "liquid_amethyst", 0xEE33EE);
+		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_AMETHYST_SPARKLE, LitParticle.Factory::new);
+		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_AMETHYST_SPLASH, WaterSplashParticle.SplashFactory::new);
+		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_AMETHYST_FISHING, WaterSplashParticle.SplashFactory::new);
 	}
 
 	// code more or less copied from spectrum

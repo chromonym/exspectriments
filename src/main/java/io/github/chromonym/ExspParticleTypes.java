@@ -12,6 +12,9 @@ public class ExspParticleTypes {
     public static final DefaultParticleType LIQUID_TOPAZ_FISHING = register("liquid_topaz_fishing", false);
     public static final DefaultParticleType LIQUID_TOPAZ_SPARKLE = register("liquid_topaz_sparkle", false);
 
+    public static final DefaultParticleType LIQUID_AMETHYST_SPLASH = register("liquid_amethyst_splash", false);
+    public static final DefaultParticleType LIQUID_AMETHYST_FISHING = register("liquid_amethyst_fishing", false);
+    public static final DefaultParticleType LIQUID_AMETHYST_SPARKLE = register("liquid_amethyst_sparkle", false);
 
     public static void initialize() {}
 
