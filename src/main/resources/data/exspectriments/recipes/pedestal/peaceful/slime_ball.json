@@ -1,0 +1,27 @@
+{
+    "type": "spectrum:pedestal",
+    "tier": "basic",
+    "required_advancement": "spectrum:collect_all_basic_shards",
+    "cyan": 1,
+    "yellow": 2,
+    "magenta": 0,
+    "experience": 0.0,
+    "pattern": [
+        " C ",
+        "CAC",
+        " C "
+    ],
+    "key": {
+        "C": {
+            "tag": "exspectriments:balls"
+        },
+        "A": {
+            "item": "exspectriments:hostile_approximator"
+        }
+    },
+    "result": {
+        "item": "minecraft:slime_ball",
+        "count": 4
+    },
+    "disable_yield_upgrades": true
+}

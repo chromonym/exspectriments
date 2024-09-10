@@ -1,0 +1,27 @@
+{
+    "type": "spectrum:pedestal",
+    "tier": "basic",
+    "required_advancement": "spectrum:collect_all_basic_shards",
+    "cyan": 0,
+    "yellow": 2,
+    "magenta": 1,
+    "experience": 0.0,
+    "pattern": [
+        " S ",
+        "SAS",
+        " S "
+    ],
+    "key": {
+        "S": {
+            "tag": "exspectriments:sticks"
+        },
+        "A": {
+            "item": "exspectriments:hostile_approximator"
+        }
+    },
+    "result": {
+        "item": "minecraft:blaze_rod",
+        "count": 2
+    },
+    "disable_yield_upgrades": true
+}

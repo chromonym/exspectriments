@@ -1,0 +1,30 @@
+{
+    "replace": false,
+    "values": [
+        "minecraft:stick",
+        "minecraft:torch",
+        "minecraft:soul_torch",
+        "minecraft:redstone_torch",
+        "minecraft:lever",
+        "minecraft:chain",
+        "minecraft:lightning_rod",
+        "minecraft:end_rod",
+        "minecraft:arrow",
+        "minecraft:tipped_arrow",
+        "minecraft:spectral_arrow",
+        "spectrum:malachite_glass_arrow",
+        "spectrum:topaz_glass_arrow",
+        "spectrum:amethyst_glass_arrow",
+        "spectrum:citrine_glass_arrow",
+        "spectrum:onyx_glass_arrow",
+        "spectrum:moonstone_glass_arrow",
+        "spectrum:sugar_stick",
+        "spectrum:topaz_sugar_stick",
+        "spectrum:amethyst_sugar_stick",
+        "spectrum:citrine_sugar_stick",
+        "spectrum:onyx_sugar_stick",
+        "spectrum:moonstone_sugar_stick",
+        "minecraft:bone",
+        "minecraft:blaze_rod"
+    ]
+}

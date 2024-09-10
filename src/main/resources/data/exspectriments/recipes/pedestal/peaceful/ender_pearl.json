@@ -1,0 +1,27 @@
+{
+    "type": "spectrum:pedestal",
+    "tier": "basic",
+    "required_advancement": "spectrum:collect_all_basic_shards",
+    "cyan": 2,
+    "yellow": 2,
+    "magenta": 1,
+    "experience": 0.0,
+    "pattern": [
+        "CCC",
+        "CAC",
+        "CCC"
+    ],
+    "key": {
+        "C": {
+            "tag": "exspectriments:balls"
+        },
+        "A": {
+            "item": "exspectriments:hostile_approximator"
+        }
+    },
+    "result": {
+        "item": "minecraft:ender_pearl",
+        "count": 8
+    },
+    "disable_yield_upgrades": true
+}

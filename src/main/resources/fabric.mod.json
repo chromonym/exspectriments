@@ -1,0 +1,42 @@
+{
+	"schemaVersion": 1,
+	"id": "exspectriments",
+	"version": "${version}",
+	"name": "Exspectriments",
+	"description": "An addon to the Spectrum mod that adds some random things (for the SillySMP server)",
+	"authors": [
+		"Chromonym"
+	],
+	"contact": {
+		"homepage": "https://github.com/chromonym",
+		"sources": "https://github.com/chromonym/Exspectriments"
+	},
+	"license": "CC0-1.0",
+	"icon": "assets/exspectriments/icon.png",
+	"environment": "*",
+	"entrypoints": {
+		"main": [
+			"io.github.chromonym.Exspectriments"
+		],
+		"client": [
+			"io.github.chromonym.ExspectrimentsClient"
+		]
+	},
+	"mixins": [
+		"exspectriments.mixins.json",
+		{
+			"config": "exspectriments.client.mixins.json",
+			"environment": "client"
+		}
+	],
+	"depends": {
+		"fabricloader": ">=0.16.4",
+		"minecraft": "~1.20.1",
+		"java": ">=17",
+		"fabric-api": "*",
+		"spectrum": ">=1.7.15"
+	},
+	"suggests": {
+		"another-mod": "*"
+	}
+}

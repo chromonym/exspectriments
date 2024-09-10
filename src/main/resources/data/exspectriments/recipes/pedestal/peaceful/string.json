@@ -1,0 +1,25 @@
+{
+    "type": "spectrum:pedestal_shapeless",
+    "tier": "basic",
+    "required_advancement": "spectrum:collect_all_basic_shards",
+    "cyan": 2,
+    "yellow": 2,
+    "magenta": 2,
+    "experience": 0.0,
+    "ingredients": [
+        {
+            "item": "exspectriments:hostile_approximator"
+        },
+        {
+            "tag": "minecraft:wool"
+        },
+        {
+            "tag": "minecraft:wool"
+        }
+    ],
+    "result": {
+        "item": "minecraft:string",
+        "count": 8
+    },
+    "disable_yield_upgrades": true
+}

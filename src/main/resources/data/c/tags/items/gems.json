@@ -1,0 +1,9 @@
+{
+    "replace": false,
+    "values": [
+        "spectrum:citrine_shard",
+        "spectrum:topaz_shard",
+        "spectrum:onyx_shard",
+        "spectrum:moonstone_shard"
+    ]
+}

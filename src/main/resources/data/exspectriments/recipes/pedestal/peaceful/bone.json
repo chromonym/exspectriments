@@ -1,0 +1,27 @@
+{
+    "type": "spectrum:pedestal",
+    "tier": "basic",
+    "required_advancement": "spectrum:collect_all_basic_shards",
+    "cyan": 2,
+    "yellow": 2,
+    "magenta": 2,
+    "experience": 0.0,
+    "pattern": [
+        "SSS",
+        "SAS",
+        "SSS"
+    ],
+    "key": {
+        "S": {
+            "tag": "exspectriments:sticks"
+        },
+        "A": {
+            "item": "exspectriments:hostile_approximator"
+        }
+    },
+    "result": {
+        "item": "minecraft:bone",
+        "count": 8
+    },
+    "disable_yield_upgrades": true
+}

@@ -1,0 +1,27 @@
+{
+    "type": "spectrum:pedestal",
+    "tier": "basic",
+    "required_advancement": "spectrum:collect_all_basic_shards",
+    "cyan": 3,
+    "yellow": 0,
+    "magenta": 1,
+    "experience": 0.0,
+    "pattern": [
+        "III",
+        "IAI",
+        "III"
+    ],
+    "key": {
+        "I": {
+            "tag": "c:ingots"
+        },
+        "A": {
+            "item": "exspectriments:hostile_approximator"
+        }
+    },
+    "result": {
+        "item": "minecraft:prismarine_shard",
+        "count": 8
+    },
+    "disable_yield_upgrades": true
+}

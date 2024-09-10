@@ -1,0 +1,36 @@
+{
+    "type": "spectrum:pedestal",
+    "tier": "basic",
+    "required_advancement": "spectrum:collect_all_basic_shards",
+    "cyan": 1,
+    "magenta": 1,
+    "yellow": 1,
+    "experience": 0.0,
+    "pattern": [
+        " D ",
+        "AOC",
+        " T "
+    ],
+    "key": {
+        "O": {
+            "item": "minecraft:obsidian"
+        },
+        "D": {
+            "item": "minecraft:emerald_block"
+        },
+        "A": {
+            "item": "minecraft:amethyst_storage_block"
+        },
+        "C": {
+            "item": "spectrum:citrine_storage_block"
+        },
+        "T": {
+            "item": "spectrum:topaz_storage_block"
+        }
+    },
+    "result": {
+        "item": "exspectriments:hostile_approximator",
+        "count": 1
+    },
+    "disable_yield_upgrades": true
+}

@@ -1,0 +1,27 @@
+{
+    "type": "spectrum:pedestal",
+    "tier": "basic",
+    "required_advancement": "spectrum:collect_all_basic_shards",
+    "cyan": 3,
+    "yellow": 0,
+    "magenta": 1,
+    "experience": 0.0,
+    "pattern": [
+        " G ",
+        "GAG",
+        " G "
+    ],
+    "key": {
+        "G": {
+            "tag": "c:gems"
+        },
+        "A": {
+            "item": "exspectriments:hostile_approximator"
+        }
+    },
+    "result": {
+        "item": "minecraft:prismarine_crystals",
+        "count": 4
+    },
+    "disable_yield_upgrades": true
+}
