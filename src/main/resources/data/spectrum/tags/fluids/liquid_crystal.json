@@ -4,6 +4,8 @@
         "exspectriments:liquid_topaz",
         "exspectriments:flowing_liquid_topaz",
         "exspectriments:liquid_amethyst",
-        "exspectriments:flowing_liquid_amethyst"
+        "exspectriments:flowing_liquid_amethyst",
+        "exspectriments:liquid_citrine",
+        "exspectriments:flowing_liquid_citrine"
     ]
 }

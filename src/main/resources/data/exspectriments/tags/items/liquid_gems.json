@@ -2,6 +2,7 @@
     "replace": false,
     "values": [
         "exspectriments:liquid_topaz_bucket",
-        "exspectriments:liquid_amethyst_bucket"
+        "exspectriments:liquid_amethyst_bucket",
+        "exspectriments:liquid_citrine_bucket"
     ]
 }

@@ -34,7 +34,8 @@ public class Exspectriments implements ModInitializer {
 			content.addAfter(SpectrumBlocks.RADIATING_ENDER, ExspItems.HOSTILE_APPROXIMATOR);
 			content.addAfter(SpectrumItems.LIQUID_CRYSTAL_BUCKET,
 				ExspItems.LIQUID_TOPAZ_BUCKET,
-				ExspItems.LIQUID_AMETHYST_BUCKET
+				ExspItems.LIQUID_AMETHYST_BUCKET,
+				ExspItems.LIQUID_CITRINE_BUCKET
 			);
 		});
 

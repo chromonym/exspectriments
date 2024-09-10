@@ -16,7 +16,7 @@ public class ExspectrimentsClient implements ClientModInitializer {
 	public void onInitializeClient() {
 		// This entrypoint is suitable for setting up client-specific logic, such as rendering.
 
-		setupFluidRendering(ExspFluids.LIQUID_TOPAZ, ExspFluids.FLOWING_LIQUID_TOPAZ, "liquid_topaz", 0x00BBBB);
+		setupFluidRendering(ExspFluids.LIQUID_TOPAZ, ExspFluids.FLOWING_LIQUID_TOPAZ, "liquid_topaz", 0x00EEEE);
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_TOPAZ_SPARKLE, LitParticle.Factory::new);
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_TOPAZ_SPLASH, WaterSplashParticle.SplashFactory::new);
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_TOPAZ_FISHING, WaterSplashParticle.SplashFactory::new);
@@ -25,6 +25,11 @@ public class ExspectrimentsClient implements ClientModInitializer {
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_AMETHYST_SPARKLE, LitParticle.Factory::new);
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_AMETHYST_SPLASH, WaterSplashParticle.SplashFactory::new);
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_AMETHYST_FISHING, WaterSplashParticle.SplashFactory::new);
+
+		setupFluidRendering(ExspFluids.LIQUID_CITRINE, ExspFluids.FLOWING_LIQUID_CITRINE, "liquid_citrine", 0xFFFF22);
+		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_CITRINE_SPARKLE, LitParticle.Factory::new);
+		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_CITRINE_SPLASH, WaterSplashParticle.SplashFactory::new);
+		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_CITRINE_FISHING, WaterSplashParticle.SplashFactory::new);
 	}
 
 	// code more or less copied from spectrum

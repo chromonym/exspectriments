@@ -13,6 +13,8 @@ public class ExspFluids {
     public static final SpectrumFluid FLOWING_LIQUID_TOPAZ = register(new LiquidTopazFluid.Flowing(), "flowing_liquid_topaz");
     public static final SpectrumFluid LIQUID_AMETHYST = register(new LiquidAmethystFluid.Still(), "liquid_amethyst");
     public static final SpectrumFluid FLOWING_LIQUID_AMETHYST = register(new LiquidAmethystFluid.Flowing(), "flowing_liquid_amethyst");
+    public static final SpectrumFluid LIQUID_CITRINE = register(new LiquidCitrineFluid.Still(), "liquid_citrine");
+    public static final SpectrumFluid FLOWING_LIQUID_CITRINE = register(new LiquidCitrineFluid.Flowing(), "flowing_liquid_citrine");
 
     public static void initialize() {}
 
