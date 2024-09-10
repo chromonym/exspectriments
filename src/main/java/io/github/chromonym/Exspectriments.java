@@ -7,6 +7,8 @@ import org.slf4j.LoggerFactory;
 
 import de.dafuqs.fractal.api.ItemSubGroupEvents;
 import de.dafuqs.spectrum.api.item_group.ItemGroupIDs;
+import de.dafuqs.spectrum.registries.SpectrumBlocks;
+import de.dafuqs.spectrum.registries.SpectrumItems;
 
 public class Exspectriments implements ModInitializer {
 	public static final String MOD_ID = "exspectriments";
@@ -23,10 +25,13 @@ public class Exspectriments implements ModInitializer {
 		// Proceed with mild caution.
 
 		ExspStatusEffects.initialize();
+		ExspFluids.initialize();
 		ExspItems.initialize();
+		ExspBlocks.initialize();
 		
 		ItemSubGroupEvents.modifyEntriesEvent(ItemGroupIDs.SUBTAB_RESOURCES).register(content -> {
-			content.add(ExspItems.HOSTILE_APPROXIMATOR);
+			content.addAfter(SpectrumBlocks.RADIATING_ENDER, ExspItems.HOSTILE_APPROXIMATOR);
+			content.addAfter(SpectrumItems.LIQUID_CRYSTAL_BUCKET, ExspItems.LIQUID_TOPAZ_BUCKET);
 		});
 
 		LOGGER.info("Hello Fabric world!");

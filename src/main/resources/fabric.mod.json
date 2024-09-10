@@ -20,6 +20,9 @@
 		],
 		"client": [
 			"io.github.chromonym.ExspectrimentsClient"
+		],
+		"emi": [
+			"io.github.chromonym.ExspectrimentsEMI"
 		]
 	},
 	"mixins": [

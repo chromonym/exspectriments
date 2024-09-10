@@ -2,8 +2,10 @@
     "effect.exspectriments.cloaking": "Cloaking",
 
     "item.exspectriments.hostile_approximator": "Hostile Approximator",
+    "item.exspectriments.liquid_topaz_bucket": "Liquid Topaz Bucket",
     
     "tag.item.exspectriments.balls": "Balls",
+    "tag.item.exspectriments.liquid_gems": "Liquid Gem Buckets",
     "tag.item.exspectriments.sticks": "Sticks",
 
     "recipeGroup.spectrum.hostile_approximator": "Hostile Approximator"
