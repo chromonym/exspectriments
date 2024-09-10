@@ -1,7 +1,7 @@
 package io.github.chromonym;
 
-import de.dafuqs.spectrum.blocks.fluid.LiquidCrystalFluidBlock;
 import de.dafuqs.spectrum.registries.SpectrumBlocks;
+import io.github.chromonym.blocks.*;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.Block;
@@ -15,7 +15,7 @@ import net.minecraft.util.Identifier;
 public class ExspBlocks {
 
     public static final Block LIQUID_TOPAZ = register(
-        new LiquidCrystalFluidBlock(ExspFluids.LIQUID_TOPAZ, SpectrumBlocks.BLAZING_CRYSTAL.getDefaultState(), fluid(MapColor.CYAN).luminance((state) -> {return 11;}).replaceable()),
+        new LiquidTopazFluidBlock(ExspFluids.LIQUID_TOPAZ, SpectrumBlocks.BLAZING_CRYSTAL.getDefaultState(), fluid(MapColor.CYAN).luminance((state) -> {return 11;}).replaceable()),
         "liquid_topaz"
     );
 

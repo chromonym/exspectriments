@@ -4,10 +4,12 @@ import de.dafuqs.spectrum.blocks.fluid.LiquidCrystalFluid;
 import io.github.chromonym.ExspBlocks;
 import io.github.chromonym.ExspFluids;
 import io.github.chromonym.ExspItems;
+import io.github.chromonym.ExspParticleTypes;
 import net.minecraft.block.BlockState;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.fluid.FluidState;
 import net.minecraft.item.Item;
+import net.minecraft.particle.ParticleEffect;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.Properties;
 import net.minecraft.state.property.Property;
@@ -37,6 +39,11 @@ public abstract class LiquidTopazFluid extends LiquidCrystalFluid {
     @Override
     public boolean matchesType(Fluid fluid) {
         return fluid == ExspFluids.LIQUID_TOPAZ || fluid == ExspFluids.FLOWING_LIQUID_TOPAZ;
+    }
+
+    @Override
+    public ParticleEffect getSplashParticle() {
+        return ExspParticleTypes.LIQUID_TOPAZ_SPLASH;
     }
 
     protected boolean isInfinite() {

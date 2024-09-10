@@ -1,7 +1,7 @@
 package io.github.chromonym;
 
 import de.dafuqs.spectrum.blocks.fluid.SpectrumFluid;
-import io.github.chromonym.fluids.LiquidTopazFluid;
+import io.github.chromonym.fluids.*;
 import net.minecraft.fluid.FlowableFluid;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;

@@ -1,6 +1,6 @@
 package io.github.chromonym;
 
-import io.github.chromonym.items.HostileApproximator;
+import io.github.chromonym.items.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;

@@ -1,6 +1,6 @@
 package io.github.chromonym;
 
-import io.github.chromonym.effects.Cloaking;
+import io.github.chromonym.effects.*;
 import net.minecraft.entity.effect.StatusEffect;
 import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
