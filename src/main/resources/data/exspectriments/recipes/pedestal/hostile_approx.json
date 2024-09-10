@@ -1,4 +1,5 @@
 {
+    "group": "hostile_approximator",
     "type": "spectrum:pedestal",
     "tier": "basic",
     "required_advancement": "spectrum:collect_all_basic_shards",
@@ -19,7 +20,7 @@
             "item": "minecraft:emerald_block"
         },
         "A": {
-            "item": "minecraft:amethyst_storage_block"
+            "item": "spectrum:amethyst_storage_block"
         },
         "C": {
             "item": "spectrum:citrine_storage_block"

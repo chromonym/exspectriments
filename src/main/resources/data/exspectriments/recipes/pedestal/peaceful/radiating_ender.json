@@ -1,0 +1,29 @@
+{
+    "type": "spectrum:pedestal",
+    "tier": "advanced",
+    "cyan": 0,
+    "yellow": 0,
+    "magenta": 3,
+    "black": 1,
+    "experience": 2.0,
+    "pattern": [
+        "EOE",
+        "OAO",
+        "EOE"
+    ],
+    "key": {
+        "O": {
+            "item": "minecraft:obsidian"
+        },
+        "E": {
+            "item": "minecraft:ender_pearl"
+        },
+        "A": {
+            "item": "exspectriments:hostile_approximator"
+        }
+    },
+    "result": {
+        "item": "spectrum:radiating_ender",
+        "count": 1
+    }
+}
