@@ -17,6 +17,8 @@ public class ExspFluids {
     public static final SpectrumFluid FLOWING_LIQUID_CITRINE = register(new LiquidCitrineFluid.Flowing(), "flowing_liquid_citrine");
     public static final SpectrumFluid LIQUID_ONYX = register(new LiquidOnyxFluid.Still(), "liquid_onyx");
     public static final SpectrumFluid FLOWING_LIQUID_ONYX = register(new LiquidOnyxFluid.Flowing(), "flowing_liquid_onyx");
+    public static final SpectrumFluid LIQUID_MOONSTONE = register(new LiquidMoonstoneFluid.Still(), "liquid_moonstone");
+    public static final SpectrumFluid FLOWING_LIQUID_MOONSTONE = register(new LiquidMoonstoneFluid.Flowing(), "flowing_liquid_moonstone");
 
     public static void initialize() {}
 

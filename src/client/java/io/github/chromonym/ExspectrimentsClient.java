@@ -35,6 +35,11 @@ public class ExspectrimentsClient implements ClientModInitializer {
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_ONYX_SPARKLE, LitParticle.Factory::new);
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_ONYX_SPLASH, WaterSplashParticle.SplashFactory::new);
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_ONYX_FISHING, WaterSplashParticle.SplashFactory::new);
+
+		setupFluidRendering(ExspFluids.LIQUID_MOONSTONE, ExspFluids.FLOWING_LIQUID_MOONSTONE, "liquid_moonstone", 0xEEEEFF);
+		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_MOONSTONE_SPARKLE, LitParticle.Factory::new);
+		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_MOONSTONE_SPLASH, WaterSplashParticle.SplashFactory::new);
+		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_MOONSTONE_FISHING, WaterSplashParticle.SplashFactory::new);
 	}
 
 	// code more or less copied from spectrum

@@ -3,6 +3,7 @@
     "block.exspectriments.liquid_amethyst": "Liquid Amethyst",
     "block.exspectriments.liquid_citrine": "Liquid Citrine",
     "block.exspectriments.liquid_onyx": "Liquid Onyx",
+    "block.exspectriments.liquid_moonstone": "Liquid Moonstone",
 
     "effect.exspectriments.cloaking": "Cloaking",
 
@@ -11,6 +12,7 @@
     "item.exspectriments.liquid_amethyst_bucket": "Liquid Amethyst Bucket",
     "item.exspectriments.liquid_citrine_bucket": "Liquid Citrine Bucket",
     "item.exspectriments.liquid_onyx_bucket": "Liquid Onyx Bucket",
+    "item.exspectriments.liquid_moonstone_bucket": "Liquid Moonstone Bucket",
     
     "tag.item.exspectriments.balls": "Balls",
     "tag.item.exspectriments.liquid_gems": "Liquid Gem Buckets",

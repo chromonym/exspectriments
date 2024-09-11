@@ -24,6 +24,10 @@ public class ExspParticleTypes {
     public static final DefaultParticleType LIQUID_ONYX_FISHING = register("liquid_onyx_fishing", false);
     public static final DefaultParticleType LIQUID_ONYX_SPARKLE = register("liquid_onyx_sparkle", false);
 
+    public static final DefaultParticleType LIQUID_MOONSTONE_SPLASH = register("liquid_moonstone_splash", false);
+    public static final DefaultParticleType LIQUID_MOONSTONE_FISHING = register("liquid_moonstone_fishing", false);
+    public static final DefaultParticleType LIQUID_MOONSTONE_SPARKLE = register("liquid_moonstone_sparkle", false);
+
     public static void initialize() {}
 
     private static DefaultParticleType register(String name, boolean alwaysShow) {
