@@ -1,10 +1,16 @@
 {
+    "block.exspectriments.liquid_topaz": "Liquid Topaz",
+    "block.exspectriments.liquid_amethyst": "Liquid Amethyst",
+    "block.exspectriments.liquid_citrine": "Liquid Citrine",
+    "block.exspectriments.liquid_onyx": "Liquid Onyx",
+
     "effect.exspectriments.cloaking": "Cloaking",
 
     "item.exspectriments.hostile_approximator": "Hostile Approximator",
     "item.exspectriments.liquid_topaz_bucket": "Liquid Topaz Bucket",
     "item.exspectriments.liquid_amethyst_bucket": "Liquid Amethyst Bucket",
     "item.exspectriments.liquid_citrine_bucket": "Liquid Citrine Bucket",
+    "item.exspectriments.liquid_onyx_bucket": "Liquid Onyx Bucket",
     
     "tag.item.exspectriments.balls": "Balls",
     "tag.item.exspectriments.liquid_gems": "Liquid Gem Buckets",

@@ -26,6 +26,10 @@ public class ExspBlocks {
         new LiquidCitrineFluidBlock(ExspFluids.LIQUID_CITRINE, SpectrumBlocks.BLAZING_CRYSTAL.getDefaultState(), fluid(MapColor.YELLOW).luminance((state) -> {return 11;}).replaceable()),
         "liquid_citrine"
     );
+    public static final Block LIQUID_ONYX = register(
+        new LiquidOnyxFluidBlock(ExspFluids.LIQUID_ONYX, SpectrumBlocks.BLAZING_CRYSTAL.getDefaultState(), fluid(MapColor.BLACK).luminance((state) -> {return 11;}).replaceable()),
+        "liquid_onyx"
+    );
 
     // code taken from spectrum - will write more compactly later
     private static AbstractBlock.Settings fluid(MapColor mapColor) {

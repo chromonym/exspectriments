@@ -1,0 +1,6 @@
+{
+    "parent": "item/generated",
+    "textures": {
+        "layer0": "exspectriments:item/liquid_onyx_bucket"
+    }
+}

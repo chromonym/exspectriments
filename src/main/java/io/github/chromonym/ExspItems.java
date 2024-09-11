@@ -16,6 +16,7 @@ public class ExspItems {
     public static final Item LIQUID_TOPAZ_BUCKET = register(new BucketItem(ExspFluids.LIQUID_TOPAZ, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)), "liquid_topaz_bucket");
     public static final Item LIQUID_AMETHYST_BUCKET = register(new BucketItem(ExspFluids.LIQUID_AMETHYST, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)), "liquid_amethyst_bucket");
     public static final Item LIQUID_CITRINE_BUCKET = register(new BucketItem(ExspFluids.LIQUID_CITRINE, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)), "liquid_citrine_bucket");
+    public static final Item LIQUID_ONYX_BUCKET = register(new BucketItem(ExspFluids.LIQUID_ONYX, new FabricItemSettings().recipeRemainder(Items.BUCKET).maxCount(1)), "liquid_onyx_bucket");
 
     public static void initialize() {}
 

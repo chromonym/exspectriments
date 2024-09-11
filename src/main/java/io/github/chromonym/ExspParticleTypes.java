@@ -20,6 +20,10 @@ public class ExspParticleTypes {
     public static final DefaultParticleType LIQUID_CITRINE_FISHING = register("liquid_citrine_fishing", false);
     public static final DefaultParticleType LIQUID_CITRINE_SPARKLE = register("liquid_citrine_sparkle", false);
 
+    public static final DefaultParticleType LIQUID_ONYX_SPLASH = register("liquid_onyx_splash", false);
+    public static final DefaultParticleType LIQUID_ONYX_FISHING = register("liquid_onyx_fishing", false);
+    public static final DefaultParticleType LIQUID_ONYX_SPARKLE = register("liquid_onyx_sparkle", false);
+
     public static void initialize() {}
 
     private static DefaultParticleType register(String name, boolean alwaysShow) {
