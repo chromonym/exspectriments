@@ -9,5 +9,7 @@
     ],
     "result": {
         "item": "spectrum:topaz_storage_block"
-    }
+    },
+    "disable_yield_upgrades": true,
+    "description": "recipe.exspectriments.fusion_shrine.explanation.crystal_result"
 }

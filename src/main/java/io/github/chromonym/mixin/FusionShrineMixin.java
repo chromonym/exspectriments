@@ -36,6 +36,7 @@ public class FusionShrineMixin {
         } else if (recipeID.startsWith("exspectriments:fusion_shrine/to_crystal/")) {
             setCrystalInFusionShrine(world, blockPos, fusionShrineBlockEntity, SpectrumFluids.LIQUID_CRYSTAL);
         }
+        // i do also now realise that i could have done this with commands. oops.
     }
 
     private static void setCrystalInFusionShrine(World world, BlockPos blockPos, FusionShrineBlockEntity fusionShrineBlockEntity, Fluid fluid) {

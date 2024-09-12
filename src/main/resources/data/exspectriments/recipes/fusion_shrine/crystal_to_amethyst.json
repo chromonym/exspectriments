@@ -6,5 +6,7 @@
             "item": "minecraft:amethyst_block",
             "count": 2
         }
-    ]
+    ],
+    "disable_yield_upgrades": true,
+    "description": "recipe.exspectriments.fusion_shrine.explanation.amethyst_result"
 }

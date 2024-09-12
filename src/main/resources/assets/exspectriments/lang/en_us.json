@@ -18,5 +18,12 @@
     "tag.item.exspectriments.liquid_gems": "Liquid Gem Buckets",
     "tag.item.exspectriments.sticks": "Sticks",
 
+    "recipe.exspectriments.fusion_shrine.explanation.topaz_result": "Liquid in shrine becomes Liquid Topaz",
+    "recipe.exspectriments.fusion_shrine.explanation.amethyst_result": "Liquid in shrine becomes Liquid Amethyst",
+    "recipe.exspectriments.fusion_shrine.explanation.citrine_result": "Liquid in shrine becomes Liquid Citrine",
+    "recipe.exspectriments.fusion_shrine.explanation.onyx_result": "Liquid in shrine becomes Liquid Onyx",
+    "recipe.exspectriments.fusion_shrine.explanation.moonstone_result": "Liquid in shrine becomes Liquid Moonstone",
+    "recipe.exspectriments.fusion_shrine.explanation.crystal_result": "Liquid in shrine becomes Liquid Crystal",
+
     "recipeGroup.spectrum.hostile_approximator": "Hostile Approximator"
 }
