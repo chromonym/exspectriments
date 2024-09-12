@@ -1,0 +1,38 @@
+{
+    "name": "Liquid Gems",
+    "category": "spectrum:exspectriments_category",
+    "icon": "spectrum:liquid_crystal_bucket",
+    "advancement": "spectrum:midgame/enter_liquid_crystal",
+    "pages": [
+        {
+            "type": "spectrum:collection",
+            "title": "Liquid Gems",
+            "items": [
+                "exspectriments:liquid_topaz_bucket",
+                "exspectriments:liquid_amethyst_bucket",
+                "exspectriments:liquid_citrine_bucket",
+                "exspectriments:liquid_onyx_bucket"
+            ],
+            "text": "That liquid crystal you made is nice, but wouldn't it be more fun if it were more $(c_cyan)col$(c_magenta)orf$(c_yellow)ul?$()"
+        },
+        {
+            "type": "patchouli:spotlight",
+            "advancement": "spectrum:lategame/collect_moonstone_shard",
+            "item": "exspectriments:liquid_moonstone_bucket",
+            "title": "Liquid Moonstone",
+            "text": "And yes, it works with $(item)Moonstone$() too."
+        },
+        {
+            "type": "spectrum:fusion_shrine_crafting",
+            "title": "Liquid Topaz (example)",
+            "recipe": "exspectriments:fusion_shrine/crystal_to_topaz",
+            "text": "While it doesn't show it here, the fluid in the shrine becomes $(thing)liquid topaz$() (or whatever gem you use instead)."
+        },
+        {
+            "type": "spectrum:fusion_shrine_crafting",
+            "title": "Liquid Topaz Decrafting",
+            "recipe": "exspectriments:fusion_shrine/to_crystal/topaz",
+            "text": "While it doesn't show it here, the fluid in the shrine reverts to $(thing)liquid crystal$().$(br2)Also serves as a way to decraft the unpolished gem blocks!"
+        }
+    ]
+}

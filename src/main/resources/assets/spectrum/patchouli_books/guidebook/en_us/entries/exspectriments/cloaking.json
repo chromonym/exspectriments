@@ -1,0 +1,19 @@
+{
+    "name": "Cloaking",
+    "icon": "minecraft:black_stained_glass_pane",
+    "category": "spectrum:exspectriments_category",
+    "advancement": "spectrum:midgame/brew_potion_in_potion_workshop",
+    "pages": [
+        {
+            "type": "spectrum:status_effect",
+            "status_effect_id": "exspectriments:cloaking",
+            "text": "Like a stronger invisibility, at the cost of not affecting other players.$(br2)Makes hostile mobs $(thing)not be able to detect you$(), no matter the distance or the armor you're wearing."
+        },
+        {
+            "title": "Recipe",
+            "type": "spectrum:potion_workshop_brewing",
+            "recipe": "exspectriments:potion_workshop_brewing/cloaking",
+            "text": "$(o)Probably not the smartest idea to try it on bosses, though...$()"
+        }
+    ]
+}

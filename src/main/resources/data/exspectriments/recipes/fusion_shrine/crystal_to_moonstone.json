@@ -1,6 +1,7 @@
 {
     "type": "spectrum:fusion_shrine",
     "fluid": "spectrum:liquid_crystal",
+    "required_advancement": "spectrum:lategame/collect_moonstone_shard",
     "ingredients": [
         {
             "item": "spectrum:moonstone_block",

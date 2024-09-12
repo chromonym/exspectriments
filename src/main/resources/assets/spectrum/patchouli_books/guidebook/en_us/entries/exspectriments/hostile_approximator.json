@@ -1,0 +1,62 @@
+{
+    "name": "Hostile Approximator",
+    "icon": "exspectriments:hostile_approximator",
+    "category": "spectrum:exspectriments_category",
+    "advancement": "spectrum:collect_all_basic_shards",
+    "pages": [
+        {
+            "type": "spectrum:pedestal_crafting",
+            "recipe": "exspectriments:pedestal/hostile_approx",
+            "title": "Hostile Approximator",
+            "text": "Dealing with mobs is a $(o)pain$(). Time to create an item so you don't have to worry about them as much."
+        },
+        {
+            "type": "spectrum:pedestal_crafting",
+            "title": "String",
+            "recipe": "exspectriments:pedestal/peaceful/string"
+        },
+        {
+            "type": "spectrum:pedestal_crafting",
+            "title": "Bone",
+            "recipe": "exspectriments:pedestal/peaceful/bone",
+            "text": "$(o)Anything resembling a $(item)stick$(nocolor) should do...$()"
+        },
+        {
+            "type": "spectrum:pedestal_crafting",
+            "title": "Blaze Rod",
+            "recipe": "exspectriments:pedestal/peaceful/blaze_rod"
+        },
+        {
+            "type": "spectrum:pedestal_crafting",
+            "title": "Prismarine Shard",
+            "recipe": "exspectriments:pedestal/peaceful/prismarine_shard"
+        },
+        {
+            "type": "spectrum:pedestal_crafting",
+            "title": "Prismarine Crystals",
+            "recipe": "exspectriments:pedestal/peaceful/prismarine_crystals"
+        },
+        {
+            "type": "spectrum:pedestal_crafting",
+            "title": "Slime Ball",
+            "recipe": "exspectriments:pedestal/peaceful/slime_ball",
+            "text": "$(o)Anything resembling a $(item)ball$(nocolor) should do...$()"
+        },
+        {
+            "type": "spectrum:pedestal_crafting",
+            "title": "Spider Eye",
+            "recipe": "exspectriments:pedestal/peaceful/spider_eye"
+        },
+        {
+            "type": "spectrum:pedestal_crafting",
+            "title": "Ender Pearl",
+            "recipe": "exspectriments:pedestal/peaceful/ender_pearl"
+        },
+        {
+            "type": "spectrum:pedestal_crafting",
+            "title": "Radiating Ender",
+            "recipe": "exspectriments:pedestal/peaceful/radiating_ender",
+            "advancement": "spectrum:craft_onyx_pedestal"
+        }
+    ]
+}
