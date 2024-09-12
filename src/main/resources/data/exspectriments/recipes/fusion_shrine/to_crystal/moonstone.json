@@ -1,0 +1,13 @@
+{
+    "type": "spectrum:fusion_shrine",
+    "fluid": "exspectriments:liquid_moonstone",
+    "ingredients": [
+        {
+            "item": "spectrum:moonstone_shard",
+            "count": 1
+        }
+    ],
+    "result": {
+        "item": "spectrum:moonstone_storage_block"
+    }
+}
