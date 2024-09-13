@@ -40,6 +40,14 @@ public class Exspectriments implements ModInitializer {
 				ExspItems.LIQUID_MOONSTONE_BUCKET
 			);
 		});
+		ItemSubGroupEvents.modifyEntriesEvent(ItemGroupIDs.SUBTAB_EQUIPMENT).register(content -> {
+			content.addAfter(SpectrumItems.NEAT_RING,
+				ExspItems.INVISIBLE_HELMET,
+				ExspItems.INVISIBLE_CHESTPLATE,
+				ExspItems.INVISIBLE_LEGGINGS,
+				ExspItems.INVISIBLE_BOOTS
+			);
+		});
 
 		LOGGER.info("Hello Fabric world!");
 	}

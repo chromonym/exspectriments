@@ -1,0 +1,25 @@
+{
+    "name": "Invisible Armor",
+    "category": "spectrum:exspectriments_category",
+    "icon": "spectrum:liquid_crystal_bucket",
+    "advancement": "spectrum:midgame/enter_liquid_crystal",
+    "pages": [
+        {
+            "type": "spectrum:collection",
+            "title": "Invisible Armor",
+            "items": [
+                "exspectriments:invisible_helmet",
+                "exspectriments:invisible_chestplate",
+                "exspectriments:invisible_leggings",
+                "exspectriments:invisible_boots"
+            ],
+            "text": "An armor made from glass that serves absolutely zero protection value. You don't know why you made this... unless you have a way to override what your armor looks like?"
+        },
+        {
+            "type": "spectrum:pedestal_crafting",
+            "recipe": "exspectriments:pedestal/invisible_helmet",
+            "title": "Hostile Approximator",
+            "text": "$(o)Pointless without some sort of Cosmetic Armor mod$()"
+        }
+    ]
+}

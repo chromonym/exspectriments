@@ -1,0 +1,25 @@
+{
+    "group": "hostile_approximator",
+    "type": "spectrum:pedestal",
+    "tier": "simple",
+    "cyan": 3,
+    "magenta": 0,
+    "yellow": 3,
+    "experience": 3.0,
+    "time": 700,
+    "pattern": [
+        "G G",
+        "GGG",
+        "GGG"
+    ],
+    "key": {
+        "G": {
+            "tag": "c:glass_blocks"
+        }
+    },
+    "result": {
+        "item": "exspectriments:invisible_chestplate",
+        "count": 1
+    },
+    "disable_yield_upgrades": true
+}

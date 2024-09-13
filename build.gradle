@@ -73,6 +73,9 @@ dependencies {
 	modApi("dev.architectury:architectury-fabric:${project.architectury_version}") { exclude(group: "net.fabricmc.fabric-api") }
     modApi("com.terraformersmc:modmenu:${project.modmenu_version}") // modmenu
 
+	modCompileOnly("maven.modrinth:cosmetic-armor:${project.cosmetic_armor_version}")
+	modLocalRuntime("maven.modrinth:cosmetic-armor:${project.cosmetic_armor_version}")
+
 	// https://github.com/shedaniel/RoughlyEnoughItems
     modCompileOnly("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}")
 

@@ -1,0 +1,24 @@
+{
+    "group": "hostile_approximator",
+    "type": "spectrum:pedestal",
+    "tier": "simple",
+    "cyan": 2,
+    "magenta": 0,
+    "yellow": 2,
+    "experience": 3.0,
+    "time": 400,
+    "pattern": [
+        "GGG",
+        "G G"
+    ],
+    "key": {
+        "G": {
+            "tag": "c:glass_blocks"
+        }
+    },
+    "result": {
+        "item": "exspectriments:invisible_helmet",
+        "count": 1
+    },
+    "disable_yield_upgrades": true
+}

@@ -1,0 +1,25 @@
+{
+    "group": "hostile_approximator",
+    "type": "spectrum:pedestal",
+    "tier": "simple",
+    "cyan": 3,
+    "magenta": 0,
+    "yellow": 3,
+    "experience": 3.0,
+    "time": 600,
+    "pattern": [
+        "GGG",
+        "G G",
+        "G G"
+    ],
+    "key": {
+        "G": {
+            "tag": "c:glass_blocks"
+        }
+    },
+    "result": {
+        "item": "exspectriments:invisible_leggings",
+        "count": 1
+    },
+    "disable_yield_upgrades": true
+}

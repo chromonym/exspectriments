@@ -2,8 +2,10 @@
 	"required": true,
 	"package": "io.github.chromonym.mixin.client",
 	"compatibilityLevel": "JAVA_17",
+	"plugin": "io.github.chromonym.MixinPlugin",
 	"client": [
-		"ExampleClientMixin"
+		"ExampleClientMixin",
+		"BedrockArmorHideMixin"
 	],
 	"injectors": {
 		"defaultRequire": 1
