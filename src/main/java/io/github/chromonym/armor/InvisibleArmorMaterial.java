@@ -24,7 +24,7 @@ public class InvisibleArmorMaterial implements ArmorMaterial {
 
     @Override
     public int getProtection(ArmorItem.Type type) {
-        return 0;
+        return 1;
     }
 
     @Override

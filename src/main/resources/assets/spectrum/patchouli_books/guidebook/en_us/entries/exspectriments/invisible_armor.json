@@ -1,8 +1,8 @@
 {
     "name": "Invisible Armor",
     "category": "spectrum:exspectriments_category",
-    "icon": "spectrum:liquid_crystal_bucket",
-    "advancement": "spectrum:midgame/enter_liquid_crystal",
+    "icon": "exspectriments:invisible_chestplate",
+    "advancement": "spectrum:craft_cmy_pedestal",
     "pages": [
         {
             "type": "spectrum:collection",
