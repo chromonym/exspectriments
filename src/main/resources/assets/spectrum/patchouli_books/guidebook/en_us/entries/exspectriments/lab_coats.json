@@ -1,0 +1,38 @@
+{
+    "name": "Lab Coats",
+    "category": "spectrum:exspectriments_category",
+    "icon": "exspectriments:lab_coat_cmy",
+    "advancement": "spectrum:place_pedestal",
+    "pages": [
+        {
+            "type": "spectrum:collection",
+            "title": "Lab Coats",
+            "items": [
+                "exspectriments:lab_coat",
+                "exspectriments:lab_coat_cmy",
+                "exspectriments:lab_coat_rose"
+            ],
+            "text": "A color scientist such as yourself really should have one of these if they want to be responsible while they work.$(br2)$(o)Note the $(item)Thornatologist's Blackcoat$(nocolor) requires $(l:https://modrinth.com/mod/roses-thorntilities)Rose's Thorntilities$(/l) to be survival-obtainable.$()"
+        },
+        {
+            "type": "spectrum:pedestal_crafting",
+            "recipe": "exspectriments:pedestal/lab_coat",
+            "title": "(Plain) Lab Coat",
+            "text": "$(o)Doesn't give much protection, but at least you look cooler$()"
+        },
+        {
+            "type": "spectrum:pedestal_crafting",
+            "recipe": "exspectriments:pedestal/lab_coat_cmy",
+            "title": "Chromatologist's",
+            "advancement": "spectrum:midgame/enter_liquid_crystal",
+            "text": "$(o)Whoops, spilt some!$()"
+        },
+        {
+            "type": "patchouli:crafting",
+            "recipe": "exspectriments:crafting/lab_coat_rose",
+            "title": "Thornatologist's",
+            "advancement": "roses_utility_and_lore_mod:voidedfromexistence",
+            "text": "$(o)hi rose$()"
+        }
+    ]
+}

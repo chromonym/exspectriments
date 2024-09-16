@@ -1,7 +1,7 @@
 package io.github.chromonym;
 
-import io.github.chromonym.armor.LabCoatArmorItem;
 import io.github.chromonym.armor.LabCoatModel;
+import io.github.chromonym.items.LabCoatArmorItem;
 import net.fabricmc.fabric.api.client.rendering.v1.ArmorRenderer;
 import net.minecraft.client.MinecraftClient;
 import net.minecraft.client.render.entity.model.BipedEntityModel;
@@ -21,5 +21,10 @@ public class ExspArmorRenderers {
             ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, texture);
         };
         ArmorRenderer.register(renderer, ExspItems.LAB_COAT);
+        ArmorRenderer.register(renderer, ExspItems.LAB_COAT_TAIL);
+        ArmorRenderer.register(renderer, ExspItems.LAB_COAT_CMY);
+        ArmorRenderer.register(renderer, ExspItems.LAB_COAT_CMY_TAIL);
+        ArmorRenderer.register(renderer, ExspItems.LAB_COAT_ROSE);
+        ArmorRenderer.register(renderer, ExspItems.LAB_COAT_ROSE_TAIL);
     }
 }

@@ -1,4 +1,4 @@
-package io.github.chromonym.armor;
+package io.github.chromonym.items;
 
 import org.jetbrains.annotations.NotNull;
 

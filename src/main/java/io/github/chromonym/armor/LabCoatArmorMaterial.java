@@ -43,7 +43,7 @@ public class LabCoatArmorMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.fromTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c","wool_blocks")));
+        return Ingredient.fromTag(TagKey.of(RegistryKeys.ITEM, new Identifier("wool")));
     }
 
     @Override

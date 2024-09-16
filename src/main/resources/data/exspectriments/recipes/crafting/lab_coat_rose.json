@@ -1,0 +1,27 @@
+{
+    "type": "minecraft:crafting_shapeless",
+    "ingredients": [
+        {
+            "item": "exspectriments:lab_coat"
+        },
+        {
+            "item": "roses_utility_and_lore_mod:glassofflux"
+        },
+        {
+            "item": "roses_utility_and_lore_mod:glassofpowderedamethyst"
+        },
+        {
+            "item": "roses_utility_and_lore_mod:glassofpowderedjade"
+        },
+        {
+            "item": "roses_utility_and_lore_mod:glassofpowderedruby"
+        },
+        {
+            "item": "roses_utility_and_lore_mod:glassofvoid"
+        }
+    ],
+    "result": {
+        "item": "exspectriments:lab_coat_rose",
+        "count": 1
+    }
+}

@@ -1,6 +1,10 @@
 package io.github.chromonym;
 
 import net.fabricmc.api.ModInitializer;
+import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.loader.api.FabricLoader;
+import net.mcreator.rosesutilityandloremod.init.RosesUtilityAndLoreModModItems;
+import net.mcreator.rosesutilityandloremod.init.RosesUtilityAndLoreModModTabs;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -48,6 +52,15 @@ public class Exspectriments implements ModInitializer {
 				ExspItems.INVISIBLE_BOOTS
 			);
 		});
+		ItemSubGroupEvents.modifyEntriesEvent(ItemGroupIDs.SUBTAB_DECORATION).register(content -> {
+			content.addAfter(SpectrumItems.MUSIC_DISC_EVERREFLECTIVE, ExspItems.LAB_COAT, ExspItems.LAB_COAT_CMY);
+		});
+
+		if (FabricLoader.getInstance().isModLoaded("roses_utility_and_lore_mod")) {
+			ItemGroupEvents.modifyEntriesEvent(RosesUtilityAndLoreModModTabs.TAB_ROSES_THORNTILITIES).register(content -> {
+				content.addAfter(RosesUtilityAndLoreModModItems.BUDDINGVOIDSTONE, ExspItems.LAB_COAT_ROSE);
+			});
+		}
 
 		LOGGER.info("Hello Fabric world!");
 	}

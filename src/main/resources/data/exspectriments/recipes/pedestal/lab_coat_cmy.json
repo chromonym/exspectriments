@@ -1,0 +1,28 @@
+{
+    "type": "spectrum:pedestal_shapeless",
+    "tier": "simple",
+    "cyan": 2,
+    "magenta": 2,
+    "yellow": 2,
+    "experience": 3.0,
+    "time": 300,
+    "ingredients": [
+        {
+            "item": "exspectriments:lab_coat"
+        },
+        {
+            "item": "exspectriments:liquid_topaz_bucket"
+        },
+        {
+            "item": "exspectriments:liquid_amethyst_bucket"
+        },
+        {
+            "item": "exspectriments:liquid_citrine_bucket"
+        }
+    ],
+    "result": {
+        "item": "exspectriments:lab_coat_cmy",
+        "count": 1
+    },
+    "disable_yield_upgrades": true
+}
