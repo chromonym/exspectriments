@@ -26,6 +26,8 @@ public class ExspItems {
     public static final Item INVISIBLE_LEGGINGS = register(new ArmorItem(InvisibleArmorMaterial.INSTANCE, ArmorItem.Type.LEGGINGS, new FabricItemSettings()), "invisible_leggings");
     public static final Item INVISIBLE_BOOTS = register(new ArmorItem(InvisibleArmorMaterial.INSTANCE, ArmorItem.Type.BOOTS, new FabricItemSettings()), "invisible_boots");
 
+    public static final Item LAB_COAT = register(new LabCoatArmorItem(LabCoatArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings(), new Identifier(Exspectriments.MOD_ID, "textures/armor/lab_coat.png")), "lab_coat");
+
     public static void initialize() {}
 
     public static Item register(Item item, String id) {
