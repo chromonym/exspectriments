@@ -1,8 +1,8 @@
 {
 	"required": true,
-	"package": "io.github.chromonym.mixin.client",
+	"package": "io.github.chromonym.exspectriments.mixin.client",
 	"compatibilityLevel": "JAVA_17",
-	"plugin": "io.github.chromonym.MixinPlugin",
+	"plugin": "io.github.chromonym.exspectriments.MixinPlugin",
 	"client": [
 		"ExampleClientMixin",
 		"BedrockArmorHideMixin"

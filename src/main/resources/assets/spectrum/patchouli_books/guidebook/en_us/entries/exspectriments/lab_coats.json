@@ -32,7 +32,7 @@
             "recipe": "exspectriments:pedestal/lab_coat_rose",
             "title": "Thornatologist's",
             "advancement": "roses_utility_and_lore_mod:voidedfromexistence",
-            "text": "$(o)Turns out the literal $(item)void$() doesn't mix well with a white lab coat...$()"
+            "text": "$(o)Turns out the literal $(item)void$(nocolor) doesn't mix well with a white lab coat...$()"
         },
         {
             "type": "spectrum:confirmation_button",

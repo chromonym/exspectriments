@@ -16,13 +16,13 @@
 	"environment": "*",
 	"entrypoints": {
 		"main": [
-			"io.github.chromonym.Exspectriments"
+			"io.github.chromonym.exspectriments.Exspectriments"
 		],
 		"client": [
-			"io.github.chromonym.ExspectrimentsClient"
+			"io.github.chromonym.exspectriments.ExspectrimentsClient"
 		],
 		"emi": [
-			"io.github.chromonym.ExspectrimentsEMI"
+			"io.github.chromonym.exspectriments.ExspectrimentsEMI"
 		]
 	},
 	"mixins": [
