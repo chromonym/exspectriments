@@ -1,10 +1,11 @@
 {
-    "name": "Cloaking",
+    "name": "Cloaking (Effect)",
     "icon": "minecraft:black_stained_glass_pane",
     "category": "spectrum:exspectriments_category",
     "advancement": "spectrum:midgame/brew_potion_in_potion_workshop",
     "pages": [
         {
+            "title": "Cloaking",
             "type": "spectrum:status_effect",
             "status_effect_id": "exspectriments:cloaking",
             "text": "Like a stronger invisibility, at the cost of not affecting other players.$(br2)Makes hostile mobs $(thing)not be able to detect you$(), no matter the distance or the armor you're wearing."

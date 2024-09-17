@@ -27,6 +27,7 @@
     "itemTooltip.exspectriments.tail": "Lifted up at the back for your tail :3",
     
     "tag.item.exspectriments.balls": "Balls",
+    "tag.item.exspectriments.lab_coats": "Lab Coats",
     "tag.item.exspectriments.liquid_gems": "Liquid Gem Buckets",
     "tag.item.exspectriments.sticks": "Sticks",
 
@@ -37,5 +38,6 @@
     "recipe.exspectriments.fusion_shrine.explanation.moonstone_result": "Liquid in shrine becomes Liquid Moonstone",
     "recipe.exspectriments.fusion_shrine.explanation.crystal_result": "Liquid in shrine becomes Liquid Crystal",
 
-    "recipeGroup.spectrum.hostile_approximator": "Hostile Approximator"
+    "recipeGroup.spectrum.hostile_approximator": "Hostile Approximator",
+    "recipeGroup.spectrum.tailed_lab_coats": "Tailed Lab Coats"
 }

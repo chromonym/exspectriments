@@ -28,11 +28,20 @@
             "text": "$(o)Whoops, spilt some!$()"
         },
         {
-            "type": "patchouli:crafting",
-            "recipe": "exspectriments:crafting/lab_coat_rose",
+            "type": "spectrum:pedestal_crafting",
+            "recipe": "exspectriments:pedestal/lab_coat_rose",
             "title": "Thornatologist's",
             "advancement": "roses_utility_and_lore_mod:voidedfromexistence",
-            "text": "$(o)hi rose$()"
+            "text": "$(o)Turns out the literal $(item)void$() doesn't mix well with a white lab coat...$()"
+        },
+        {
+            "type": "spectrum:confirmation_button",
+            "title": "Tail Variants",
+            "checked_advancement": "exspectriments:confirm_furry",
+            "button_text": "I have a tail",
+            "button_text_confirmed": "Has a tail ✔",
+            "confirmation": "confirm_furry",
+            "text": "Press the button below to gain access to the 'tailed' lab coat variants, which are lifted up at the back in case you have a player model with a tail (via $(l:https://modrinth.com/mod/ears)Ears$(/l), $(l:https://modrinth.com/mod/figura)Figura$(/l), etc).$(br)Simply place any lab coat in the pigment pedestal to craft or decraft its tailed variant."
         }
     ]
 }

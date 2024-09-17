@@ -18,8 +18,8 @@
         {
             "type": "spectrum:pedestal_crafting",
             "recipe": "exspectriments:pedestal/invisible_helmet",
-            "title": "Hostile Approximator",
-            "text": "$(o)Pointless without some sort of Cosmetic Armor mod$()"
+            "title": "Invisible Helmet",
+            "text": "Helmet and Boots require two Topaz and Citrine, Chestplate and Leggings three.$(br2)$(o)Pointless without some sort of Cosmetic Armor mod$()"
         }
     ]
 }

@@ -1,0 +1,8 @@
+{
+    "criteria": {
+        "confirm_furry": {
+            "trigger": "spectrum:confirmation_button_pressed",
+            "conditions": { "confirmation": "confirm_furry" }
+        }
+    }
+}

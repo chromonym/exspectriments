@@ -1,0 +1,21 @@
+{
+    "type": "spectrum:pedestal_shapeless",
+    "group": "tailed_lab_coats",
+    "tier": "basic",
+    "cyan": 0,
+    "magenta": 0,
+    "yellow": 0,
+    "experience": 0,
+    "time": 20,
+    "ingredients": [
+        {
+            "item": "exspectriments:lab_coat_cmy"
+        }
+    ],
+    "result": {
+        "item": "exspectriments:lab_coat_cmy_tail",
+        "count": 1
+    },
+    "disable_yield_upgrades": true,
+    "required_advancement": "exspectriments:confirm_furry"
+}

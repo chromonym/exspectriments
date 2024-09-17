@@ -1,5 +1,12 @@
 {
-    "type": "minecraft:crafting_shapeless",
+    "type": "spectrum:pedestal_shapeless",
+    "group": "tailed_lab_coats",
+    "tier": "basic",
+    "cyan": 0,
+    "magenta": 0,
+    "yellow": 0,
+    "experience": 3.0,
+    "time": 100,
     "ingredients": [
         {
             "item": "exspectriments:lab_coat_tail"
@@ -23,5 +30,7 @@
     "result": {
         "item": "exspectriments:lab_coat_rose_tail",
         "count": 1
-    }
+    },
+    "disable_yield_upgrades": true,
+    "required_advancement": "exspectriments:confirm_furry"
 }

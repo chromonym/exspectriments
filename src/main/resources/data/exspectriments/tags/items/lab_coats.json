@@ -1,0 +1,11 @@
+{
+    "replace": false,
+    "values": [
+        "exspectriments:lab_coat",
+        "exspectriments:lab_coat_tail",
+        "exspectriments:lab_coat_cmy",
+        "exspectriments:lab_coat_cmy_tail",
+        "exspectriments:lab_coat_rose",
+        "exspectriments:lab_coat_rose_tail"
+    ]
+}

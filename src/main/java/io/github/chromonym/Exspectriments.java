@@ -3,7 +3,6 @@ package io.github.chromonym;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
 import net.fabricmc.loader.api.FabricLoader;
-import net.mcreator.rosesutilityandloremod.init.RosesUtilityAndLoreModModItems;
 import net.mcreator.rosesutilityandloremod.init.RosesUtilityAndLoreModModTabs;
 
 import org.slf4j.Logger;
@@ -58,7 +57,7 @@ public class Exspectriments implements ModInitializer {
 
 		if (FabricLoader.getInstance().isModLoaded("roses_utility_and_lore_mod")) {
 			ItemGroupEvents.modifyEntriesEvent(RosesUtilityAndLoreModModTabs.TAB_ROSES_THORNTILITIES).register(content -> {
-				content.addAfter(RosesUtilityAndLoreModModItems.BUDDINGVOIDSTONE, ExspItems.LAB_COAT_ROSE);
+				content.add(ExspItems.LAB_COAT_ROSE); // would have done addAfter to force it at the end of the tab, but i can't do that with how mcreator adds items to tabs
 			});
 		}
 

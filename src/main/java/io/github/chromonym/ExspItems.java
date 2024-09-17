@@ -3,7 +3,6 @@ package io.github.chromonym;
 import io.github.chromonym.armor.*;
 import io.github.chromonym.items.*;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
-import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.BucketItem;
 import net.minecraft.item.Item;

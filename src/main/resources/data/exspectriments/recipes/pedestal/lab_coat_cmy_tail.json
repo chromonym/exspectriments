@@ -1,5 +1,6 @@
 {
     "type": "spectrum:pedestal_shapeless",
+    "group": "tailed_lab_coats",
     "tier": "simple",
     "cyan": 2,
     "magenta": 2,
@@ -25,5 +26,5 @@
         "count": 1
     },
     "disable_yield_upgrades": true,
-    "secret": true
+    "required_advancement": "exspectriments:confirm_furry"
 }

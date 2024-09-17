@@ -1,5 +1,11 @@
 {
-    "type": "minecraft:crafting_shapeless",
+    "type": "spectrum:pedestal_shapeless",
+    "tier": "basic",
+    "cyan": 0,
+    "magenta": 0,
+    "yellow": 0,
+    "experience": 3.0,
+    "time": 100,
     "ingredients": [
         {
             "item": "exspectriments:lab_coat"
@@ -23,5 +29,6 @@
     "result": {
         "item": "exspectriments:lab_coat_rose",
         "count": 1
-    }
+    },
+    "disable_yield_upgrades": true
 }
