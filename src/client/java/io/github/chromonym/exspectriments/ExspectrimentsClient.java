@@ -6,6 +6,7 @@ import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.FluidRenderHandlerRegistry;
 import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
+import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.particle.WaterSplashParticle;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.fluid.Fluid;
@@ -42,6 +43,10 @@ public class ExspectrimentsClient implements ClientModInitializer {
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_MOONSTONE_SPARKLE, LitParticle.Factory::new);
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_MOONSTONE_SPLASH, WaterSplashParticle.SplashFactory::new);
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_MOONSTONE_FISHING, WaterSplashParticle.SplashFactory::new);
+
+		if (FabricLoader.getInstance().isModLoaded("ears") && FabricLoader.getInstance().isModLoaded("cosmetic-armor")) {
+			EarsCompat.register();
+		}
 	}
 
 	// code more or less copied from spectrum

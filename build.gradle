@@ -25,6 +25,12 @@ repositories {
     maven { url = "https://jitpack.io" } // Arrowhead, Dimensional Reverb, Step Height Entity Attribute
     maven { url = "https://maven.ladysnake.org/releases" } // Cardinal Components API
     maven { url = "https://maven.jamieswhiteshirt.com/libs-release/" } // Entity Reach Attribute
+	maven {
+		url "https://repo.unascribed.com"
+		content {
+			includeGroup "com.unascribed"
+		}
+	}
 }
 
 loom {
@@ -80,6 +86,9 @@ dependencies {
 	modCompileOnly("maven.modrinth:roses-thorntilities:${project.roses_thorntilities_version}")
 	modLocalRuntime("maven.modrinth:roses-thorntilities:${project.roses_thorntilities_version}")
 
+	modCompileOnly("com.unascribed:ears-api:${project.ears_version}")
+	//modLocalRuntime("maven.modrinth:ears:Lr5BTYBp")
+
 	// https://github.com/shedaniel/RoughlyEnoughItems
     modCompileOnly("me.shedaniel:RoughlyEnoughItems-fabric:${project.rei_version}")
 
@@ -114,6 +123,7 @@ modrinth {
 		optional.project "cosmetic-armor"
 		optional.project "emi"
     }
+	syncBodyFrom = rootProject.file("README.md").text
 }
 
 processResources {
