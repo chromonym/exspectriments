@@ -43,8 +43,7 @@
 		"fabric-api": "*",
 		"spectrum": ">=1.7.14",
 		"revelationary": "*",
-		"patchouli": "*",
-		"trinkets": "*"
+		"patchouli": "*"
 	},
 	"suggests": {
 		"cosmetic-armor": "*",
