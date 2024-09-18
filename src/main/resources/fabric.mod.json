@@ -3,15 +3,19 @@
 	"id": "exspectriments",
 	"version": "${version}",
 	"name": "Exspectriments",
-	"description": "An addon to the Spectrum mod that adds some random things (for the SillySMP server)",
+	"description": "A personal addon to the Spectrum mod that adds some random things (for the SillySMP server)",
 	"authors": [
 		"Chromonym"
 	],
+	"contributors": [
+		"RoseShatterheart"
+	],
 	"contact": {
 		"homepage": "https://github.com/chromonym",
-		"sources": "https://github.com/chromonym/Exspectriments"
+		"sources": "https://github.com/chromonym/Exspectriments",
+		"issues": "https://github.com/chromonym/Exspectriments/issues"
 	},
-	"license": "CC0-1.0",
+	"license": "lGPL3",
 	"icon": "assets/exspectriments/icon.png",
 	"environment": "*",
 	"entrypoints": {
@@ -37,9 +41,13 @@
 		"minecraft": "~1.20.1",
 		"java": ">=17",
 		"fabric-api": "*",
-		"spectrum": ">=1.7.14"
+		"spectrum": ">=1.7.14",
+		"revelationary": "*",
+		"patchouli": "*",
+		"trinkets": "*"
 	},
 	"suggests": {
-		"another-mod": "*"
+		"cosmetic-armor": "*",
+		"roses_utility_and_lore_mod": "*"
 	}
 }

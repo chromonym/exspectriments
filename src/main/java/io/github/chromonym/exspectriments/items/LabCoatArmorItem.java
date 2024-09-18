@@ -7,15 +7,14 @@ import net.fabricmc.api.Environment;
 import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorItem;
 import net.minecraft.item.ArmorMaterial;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Identifier;
 
 public class LabCoatArmorItem extends ArmorItem {
-    @Environment(EnvType.CLIENT)
-    //private BipedEntityModel<LivingEntity> model;
     private Identifier texture;
 
-    public LabCoatArmorItem(ArmorMaterial material, Type type, Settings settings, Identifier texture) {
+    public LabCoatArmorItem(ArmorMaterial material, ArmorItem.Type type, Item.Settings settings, Identifier texture) {
         super(material, type, settings);
         this.texture = texture;
     }

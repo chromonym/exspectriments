@@ -24,8 +24,6 @@ repositories {
     maven { url = "https://jitpack.io" } // Arrowhead, Dimensional Reverb, Step Height Entity Attribute
     maven { url = "https://maven.ladysnake.org/releases" } // Cardinal Components API
     maven { url = "https://maven.jamieswhiteshirt.com/libs-release/" } // Entity Reach Attribute
-
-	maven { url = "https://mvn.devos.one/releases/" } // delete later
 }
 
 loom {
