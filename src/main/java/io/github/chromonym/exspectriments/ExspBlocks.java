@@ -15,6 +15,7 @@ import net.minecraft.util.Identifier;
 public class ExspBlocks {
 
     //public static final PigmentPrinter PIGMENT_PRINTER = new PigmentPrinter(FabricBlockSettings.copyOf(SpectrumBlocks.POTION_WORKSHOP));
+    public static final Block PRINTER_BLOCK = register(new PrinterBlock(FabricBlockSettings.copyOf(SpectrumBlocks.POTION_WORKSHOP)), "printer");
 
     public static final Block LIQUID_TOPAZ = register(
         new LiquidTopazFluidBlock(ExspFluids.LIQUID_TOPAZ, SpectrumBlocks.BLAZING_CRYSTAL.getDefaultState(), fluid(MapColor.CYAN).luminance((state) -> {return 11;}).replaceable()),
