@@ -12,6 +12,7 @@ import de.dafuqs.spectrum.energy.storage.IndividualCappedInkStorage;
 import io.github.chromonym.exspectriments.ExspBlockEntities;
 import io.github.chromonym.exspectriments.ExspBlocks;
 import io.github.chromonym.exspectriments.screenhandlers.PrinterScreenHandler;
+import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
@@ -19,14 +20,17 @@ import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 import net.minecraft.text.Text;
 import net.minecraft.util.collection.DefaultedList;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
-public class PrinterBlockEntity extends BlockEntity implements NamedScreenHandlerFactory, ImplementedInventory, InkStorageBlockEntity<IndividualCappedInkStorage> {
+public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory, InkStorageBlockEntity<IndividualCappedInkStorage> {
     public DefaultedList<ItemStack> inventory = DefaultedList.ofSize(6, ItemStack.EMPTY);
     public IndividualCappedInkStorage inkStorage = new IndividualCappedInkStorage(100L, Set.of(InkColors.WHITE, InkColors.CYAN, InkColors.MAGENTA, InkColors.YELLOW, InkColors.BLACK));
     protected boolean inkDirty;
@@ -41,18 +45,23 @@ public class PrinterBlockEntity extends BlockEntity implements NamedScreenHandle
 
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new PrinterScreenHandler(syncId, playerInventory, this);
+        return new PrinterScreenHandler(syncId, playerInventory, this.pos);
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, PrinterBlockEntity blockEntity) { // ???????
         if (!world.isClient) {
             blockEntity.inkDirty = false;
             if (world.getTime() % 12L == 0L) {
-                tryTransferInk(blockEntity.inventory.get(1), blockEntity, InkColors.WHITE);
-                tryTransferInk(blockEntity.inventory.get(2), blockEntity, InkColors.BLACK);
-                tryTransferInk(blockEntity.inventory.get(3), blockEntity, InkColors.CYAN);
-                tryTransferInk(blockEntity.inventory.get(4), blockEntity, InkColors.MAGENTA);
-                tryTransferInk(blockEntity.inventory.get(5), blockEntity, InkColors.YELLOW);
+                if (
+                tryTransferInk(blockEntity.inventory.get(1), blockEntity, InkColors.WHITE)||
+                tryTransferInk(blockEntity.inventory.get(2), blockEntity, InkColors.BLACK)||
+                tryTransferInk(blockEntity.inventory.get(3), blockEntity, InkColors.CYAN)||
+                tryTransferInk(blockEntity.inventory.get(4), blockEntity, InkColors.MAGENTA)||
+                tryTransferInk(blockEntity.inventory.get(5), blockEntity, InkColors.YELLOW)) {
+                    blockEntity.updateInClientWorld();
+                    blockEntity.setInkDirty();
+                    blockEntity.markDirty();
+                }
             }
         }
     }
@@ -69,9 +78,10 @@ public class PrinterBlockEntity extends BlockEntity implements NamedScreenHandle
     }
 
     public void updateInClientWorld() {
-        if (this.world != null) {
+        /*if (this.world != null) {
             this.world.updateListeners(this.pos, this.world.getBlockState(this.pos), this.world.getBlockState(this.pos), 4);
-        }
+        }*/
+        ((ServerWorld) world).getChunkManager().markForUpdate(pos);
     }
     
     @Override
@@ -111,6 +121,11 @@ public class PrinterBlockEntity extends BlockEntity implements NamedScreenHandle
         super.readNbt(nbt);
         Inventories.readNbt(nbt, this.inventory);
         this.inkStorage = IndividualCappedInkStorage.fromNbt(nbt.getCompound("InkStorage"));
+    }
+
+    @Override
+    public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
+        buf.writeBlockPos(this.pos);
     }
     
 }

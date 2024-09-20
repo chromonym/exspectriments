@@ -5,21 +5,36 @@ import de.dafuqs.spectrum.networking.SpectrumS2CPacketSender;
 import io.github.chromonym.exspectriments.ExspScreenHandlers;
 import io.github.chromonym.exspectriments.entities.PrinterBlockEntity;
 import io.github.chromonym.exspectriments.screenhandlers.slots.DyeableSlot;
+import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.item.ItemStack;
+import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.screen.slot.Slot;
 import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.util.math.BlockPos;
+import net.minecraft.world.World;
 
 public class PrinterScreenHandler extends ScreenHandler {
     protected PrinterBlockEntity printerBlockEntity;
+    public final ServerPlayerEntity player;
+    protected final World world;
 
-    public PrinterScreenHandler(int syncId, PlayerInventory playerInventory) {
-        this(syncId, playerInventory, new PrinterBlockEntity());
+    @Override
+    public void sendContentUpdates() {
+        super.sendContentUpdates();
+        if (this.player != null && this.printerBlockEntity.getInkDirty()) {
+           SpectrumS2CPacketSender.updateBlockEntityInk(this.printerBlockEntity.getPos(), this.printerBlockEntity.getEnergyStorage(), this.player);
+        }
+  
+     }
+
+    public PrinterScreenHandler(int syncId, PlayerInventory playerInventory, PacketByteBuf buf) {
+        this(syncId, playerInventory, buf.readBlockPos());
     }
 
-    public PrinterScreenHandler(int syncId, PlayerInventory playerInventory, PrinterBlockEntity printerBlockEntity) {
+    public PrinterScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos readBlockPos) {
         super(ExspScreenHandlers.PRINTER_SCREEN_HANDLER, syncId);
         PlayerEntity var6 = playerInventory.player;
         ServerPlayerEntity var10001;
@@ -28,8 +43,15 @@ public class PrinterScreenHandler extends ScreenHandler {
         } else {
             var10001 = null;
         }
+        this.player = var10001;
+        this.world = playerInventory.player.getWorld();
+        BlockEntity blockEntity = playerInventory.player.getWorld().getBlockEntity(readBlockPos);
+        if (blockEntity instanceof PrinterBlockEntity PblockEntity) {
+            this.printerBlockEntity = PblockEntity;
+        } else {
+            throw new IllegalArgumentException("GUI called with a position where no valid BlockEntity exists");
+        }
         checkSize(printerBlockEntity, 6);
-        this.printerBlockEntity = printerBlockEntity;
         printerBlockEntity.onOpen(playerInventory.player);
         int m;
         int l;
@@ -52,14 +74,18 @@ public class PrinterScreenHandler extends ScreenHandler {
             this.addSlot(new Slot(playerInventory, m, 8 + m * 18, 142));
         }
 
-        if (var10001 != null) {
-            SpectrumS2CPacketSender.updateBlockEntityInk(printerBlockEntity.getPos(), this.printerBlockEntity.getEnergyStorage(), var10001);
+        if (this.player != null) {
+            SpectrumS2CPacketSender.updateBlockEntityInk(printerBlockEntity.getPos(), this.printerBlockEntity.getEnergyStorage(), this.player);
         }
     }
 
     @Override
     public boolean canUse(PlayerEntity player) {
         return this.printerBlockEntity.canPlayerUse(player);
+    }
+
+    public PrinterBlockEntity getBlockEntity() {
+        return this.printerBlockEntity;
     }
 
     @Override
