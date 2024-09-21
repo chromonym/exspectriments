@@ -21,7 +21,6 @@ import net.minecraft.inventory.Inventories;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
-import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.screen.ScreenHandler;
 import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.server.world.ServerWorld;
@@ -48,7 +47,7 @@ public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHan
         return new PrinterScreenHandler(syncId, playerInventory, this.pos);
     }
 
-    public static void tick(World world, BlockPos pos, BlockState state, PrinterBlockEntity blockEntity) { // ???????
+    /*public static void tick(World world, BlockPos pos, BlockState state, PrinterBlockEntity blockEntity) { // ???????
         if (!world.isClient) {
             blockEntity.inkDirty = false;
             if (world.getTime() % 12L == 0L) {
@@ -64,7 +63,7 @@ public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHan
                 }
             }
         }
-    }
+    }*/
 
     public static boolean tryTransferInk(ItemStack source, PrinterBlockEntity destination, InkColor color) {
         if (source.getItem() instanceof InkStorageItem<?> inkStorageItem) {
@@ -75,6 +74,40 @@ public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHan
             }
         }
         return false;
+    }
+
+    public boolean incrementInk(ItemStack itemStack, InkColor color) {
+        if (itemStack.getItem() instanceof InkStorageItem<?> inkStorageItem) {
+            InkStorage source = inkStorageItem.getEnergyStorage(itemStack);
+            InkStorage destination = this.inkStorage;
+            if (destination.accepts(color) && source.accepts(color) && destination.getEnergy(color) < destination.getMaxPerColor() && source.getEnergy(color) > 0L) {
+                destination.addEnergy(color, 1L);
+                source.drainEnergy(color, 1L);
+                return true;
+            }
+        }
+        return false; // could not successfully increase ink
+    }
+
+    public boolean decrementInk(ItemStack itemStack, InkColor color) {
+        InkStorage source = this.inkStorage;
+        if (itemStack.getItem() instanceof InkStorageItem<?> inkStorageItem) {
+            InkStorage destination = inkStorageItem.getEnergyStorage(itemStack);
+            if (destination.accepts(color) && source.accepts(color) && destination.getEnergy(color) < destination.getMaxPerColor() && source.getEnergy(color) > 0L) {
+                destination.addEnergy(color, 1L);
+                source.drainEnergy(color, 1L);
+                return true;
+            } else if (source.accepts(color) && source.getEnergy(color) > 0L) {
+                source.drainEnergy(color, 1L);
+                return true;
+            }
+        } else {
+            if (source.accepts(color) && source.getEnergy(color) > 0L) {
+                source.drainEnergy(color, 1L);
+                return true;
+            }
+        }
+        return false; // could not successfully increase ink
     }
 
     public void updateInClientWorld() {

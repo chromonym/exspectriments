@@ -55,10 +55,10 @@ public class PrinterBlock extends BlockWithEntity {
         }
     }
 
-    @Override
+    /*@Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
         return checkType(type, ExspBlockEntities.PRINTER_BLOCK_ENTITY, PrinterBlockEntity::tick);
-    }
+    }*/
 
     /*@Override
     public boolean hasComparatorOutput(BlockState state) {
