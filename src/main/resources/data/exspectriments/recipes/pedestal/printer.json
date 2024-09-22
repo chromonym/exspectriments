@@ -1,0 +1,44 @@
+{
+    "type": "spectrum:pedestal",
+    "time": 1000,
+    "tier": "complex",
+    "cyan": 4,
+    "magenta": 4,
+    "yellow": 4,
+    "black": 4,
+    "white": 4,
+    "experience": 4.0,
+    "pattern": [
+        "C1M",
+        "2W2",
+        "Y1K"
+    ],
+    "key": {
+        "W": {
+            "item": "spectrum:white_pigment"
+        },
+        "C": {
+            "item": "spectrum:cyan_pigment"
+        },
+        "M": {
+            "item": "spectrum:magenta_pigment"
+        },
+        "Y": {
+            "item": "spectrum:yellow_pigment"
+        },
+        "K": {
+            "item": "spectrum:black_pigment"
+        },
+        "1": {
+            "item": "spectrum:polished_calcite"
+        },
+        "2": {
+            "item": "spectrum:polished_basalt"
+        }
+    },
+    "result": {
+        "item": "exspectriments:printer",
+        "count": 1
+    },
+    "required_advancement": "spectrum:lategame/collect_grayscale_pigments"
+}

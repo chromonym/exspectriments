@@ -8,7 +8,6 @@ import net.minecraft.util.math.BlockPos;
 public class ExspClientRecievers {
     public static void registerReceivers() {
         ClientPlayNetworking.registerGlobalReceiver(ExspServerRecievers.PRINTER_PACKET_RECIEVER, (client, handler, buf, responseSender) -> {
-            Exspectriments.LOGGER.info("sent");
             BlockPos pos = buf.readBlockPos();
             int cyan = buf.readInt();
             int magenta = buf.readInt();

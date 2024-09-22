@@ -37,7 +37,6 @@ public class InkcrementWidget extends ClickableWidget {
 
     @Override
     public void onClick(double mouseX, double mouseY) {
-        Exspectriments.LOGGER.info("clicked ".concat(inkColor.toString()));
         this.isClicked = true;
     }
 

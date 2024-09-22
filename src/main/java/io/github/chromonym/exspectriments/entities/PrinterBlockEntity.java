@@ -174,10 +174,6 @@ public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHan
     }
 
     public void updateColourFields(int cyan, int magenta, int yellow, int black) {
-        Exspectriments.LOGGER.info("Recieved: ".concat(String.valueOf(cyan)).concat(", ")
-                                               .concat(String.valueOf(magenta)).concat(", ")
-                                               .concat(String.valueOf(yellow)).concat(", ")
-                                               .concat(String.valueOf(black)));
         this.cyanAmount = cyan;
         this.magentaAmount = magenta;
         this.yellowAmount = yellow;

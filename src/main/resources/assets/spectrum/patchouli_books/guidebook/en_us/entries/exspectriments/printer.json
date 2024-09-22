@@ -1,0 +1,18 @@
+{
+    "name": "Printer",
+    "icon": "exspectriments:printer",
+    "category": "spectrum:exspectriments_category",
+    "advancement": "spectrum:lategame/collect_grayscale_pigments",
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "Dyeing certain items has always had a bit of a limitation in terms of the colors you can make - you're limited to the colors of the dyes you can find, and how many you can fit in a crafting grid at once.$(br2)Now that you have access to all of the elemental ink colors, why not use those to dye your items instead?"
+        },
+        {
+            "type": "spectrum:pedestal_crafting",
+            "title": "Recipe",
+            "recipe": "exspectriments:pedestal/printer",
+            "text": ""
+        }
+    ]
+}
