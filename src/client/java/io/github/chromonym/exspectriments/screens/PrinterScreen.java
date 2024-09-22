@@ -16,6 +16,7 @@ import net.minecraft.client.gui.widget.TextFieldWidget;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.Text;
+import net.minecraft.util.Formatting;
 import net.minecraft.util.Identifier;
 
 public class PrinterScreen extends HandledScreen<PrinterScreenHandler> {
@@ -88,10 +89,16 @@ public class PrinterScreen extends HandledScreen<PrinterScreenHandler> {
     public void render(DrawContext context, int mouseX, int mouseY, float delta) {
         renderBackground(context);
         super.render(context, mouseX, mouseY, delta);
+        int startX = (this.width - this.backgroundWidth) / 2;
+		int startY = (this.height - this.backgroundHeight) / 2;
         cyanField.render(context, mouseX, mouseY, delta);
         magentaField.render(context, mouseX, mouseY, delta);
         yellowField.render(context, mouseX, mouseY, delta);
         blackField.render(context, mouseX, mouseY, delta);
+        context.drawText(this.textRenderer, Text.literal("C").formatted(Formatting.DARK_AQUA), startX+33, startY+42, 2236962, false);
+        context.drawText(this.textRenderer, Text.literal("M").formatted(Formatting.LIGHT_PURPLE), startX+77, startY+42, 2236962, false);
+        context.drawText(this.textRenderer, Text.literal("Y").formatted(Formatting.GOLD), startX+33, startY+59, 2236962, false);
+        context.drawText(this.textRenderer, Text.literal("K").formatted(Formatting.BLACK), startX+77, startY+59, 2236962, false);
         drawMouseoverTooltip(context, mouseX, mouseY);
     }
 

@@ -19,6 +19,7 @@ import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventories;
+import net.minecraft.item.DyeableItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.PacketByteBuf;
@@ -185,4 +186,34 @@ public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHan
         this.markDirty();
     }
     
+    public ItemStack calculateColored() {
+        if (this.inkStorage.getEnergy(InkColors.CYAN) >= this.cyanAmount &&
+            this.inkStorage.getEnergy(InkColors.MAGENTA) >= this.magentaAmount &&
+            this.inkStorage.getEnergy(InkColors.YELLOW) >= this.yellowAmount &&
+            this.inkStorage.getEnergy(InkColors.BLACK) >= this.blackAmount &&
+            this.inkStorage.getEnergy(InkColors.WHITE) >= 100L &&
+            this.getStack(0).getItem() instanceof DyeableItem dyeable) {
+                int red = (int) (255 * (1F - this.cyanAmount/100F) * (1F - this.blackAmount/100F) + 0.5);
+                int green = (int) (255 * (1F - this.magentaAmount/100F) * (1F - this.blackAmount/100F) + 0.5);
+                int blue = (int) (255 * (1F - this.yellowAmount/100F) * (1F - this.blackAmount/100F) + 0.5);
+                int color = ((red & 0xFF) << 16) |
+                            ((green & 0xFF) << 8) |
+                            (blue & 0xFF);
+                ItemStack temp = this.getStack(0).copy();
+                dyeable.setColor(temp, color);
+                return temp;
+        } else {
+            return ItemStack.EMPTY;
+            
+        }
+    }
+
+    public void useInk() {
+        this.inkStorage.drainEnergy(InkColors.CYAN, this.cyanAmount);
+        this.inkStorage.drainEnergy(InkColors.MAGENTA, this.magentaAmount);
+        this.inkStorage.drainEnergy(InkColors.YELLOW, this.yellowAmount);
+        this.inkStorage.drainEnergy(InkColors.BLACK, this.blackAmount);
+        this.inkStorage.drainEnergy(InkColors.WHITE, 100L);
+    }
+
 }

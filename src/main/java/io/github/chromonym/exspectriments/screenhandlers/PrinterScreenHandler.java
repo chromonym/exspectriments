@@ -5,9 +5,11 @@ import de.dafuqs.spectrum.networking.SpectrumS2CPacketSender;
 import io.github.chromonym.exspectriments.ExspScreenHandlers;
 import io.github.chromonym.exspectriments.entities.PrinterBlockEntity;
 import io.github.chromonym.exspectriments.screenhandlers.slots.DyeableSlot;
+import io.github.chromonym.exspectriments.screenhandlers.slots.PrinterOutputSlot;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
+import net.minecraft.inventory.CraftingResultInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.screen.ScreenHandler;
@@ -20,6 +22,7 @@ public class PrinterScreenHandler extends ScreenHandler {
     protected PrinterBlockEntity printerBlockEntity;
     public final ServerPlayerEntity player;
     protected final World world;
+    protected final CraftingResultInventory resultInventory = new CraftingResultInventory();
 
     @Override
     public void sendContentUpdates() {
@@ -27,7 +30,7 @@ public class PrinterScreenHandler extends ScreenHandler {
         if (this.player != null && this.printerBlockEntity.getInkDirty()) {
            SpectrumS2CPacketSender.updateBlockEntityInk(this.printerBlockEntity.getPos(), this.printerBlockEntity.getEnergyStorage(), this.player);
         }
-  
+        this.resultInventory.setStack(0, this.printerBlockEntity.calculateColored());
      }
 
     public PrinterScreenHandler(int syncId, PlayerInventory playerInventory, PacketByteBuf buf) {
@@ -58,6 +61,7 @@ public class PrinterScreenHandler extends ScreenHandler {
 
         this.addSlot(new DyeableSlot(printerBlockEntity, 0, 43, 17));
         this.addSlot(new InkStorageSlot(printerBlockEntity, 1, 146, 13));
+        this.addSlot(new PrinterOutputSlot(printerBlockEntity, resultInventory, 0, 92, 17));
         /*this.addSlot(new InkStorageSlot(printerBlockEntity, 2, 122, 17));
         this.addSlot(new InkStorageSlot(printerBlockEntity, 3, 21, 49));
         this.addSlot(new InkStorageSlot(printerBlockEntity, 4, 71, 49));
@@ -86,6 +90,15 @@ public class PrinterScreenHandler extends ScreenHandler {
 
     public PrinterBlockEntity getBlockEntity() {
         return this.printerBlockEntity;
+    }
+
+    @Override
+    public boolean canInsertIntoSlot(ItemStack stack, Slot slot) {
+        return slot.inventory != this.resultInventory && super.canInsertIntoSlot(stack,slot);
+    }
+    @Override
+    public boolean canInsertIntoSlot(Slot slot) {
+        return slot.inventory != this.resultInventory && super.canInsertIntoSlot(slot);
     }
 
     @Override
