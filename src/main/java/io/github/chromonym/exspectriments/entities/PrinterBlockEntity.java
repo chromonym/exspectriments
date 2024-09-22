@@ -11,6 +11,7 @@ import de.dafuqs.spectrum.energy.color.InkColors;
 import de.dafuqs.spectrum.energy.storage.IndividualCappedInkStorage;
 import io.github.chromonym.exspectriments.ExspBlockEntities;
 import io.github.chromonym.exspectriments.ExspBlocks;
+import io.github.chromonym.exspectriments.Exspectriments;
 import io.github.chromonym.exspectriments.screenhandlers.PrinterScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
@@ -30,9 +31,13 @@ import net.minecraft.util.math.BlockPos;
 import net.minecraft.world.World;
 
 public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHandlerFactory, ImplementedInventory, InkStorageBlockEntity<IndividualCappedInkStorage> {
-    public DefaultedList<ItemStack> inventory = DefaultedList.ofSize(6, ItemStack.EMPTY);
-    public IndividualCappedInkStorage inkStorage = new IndividualCappedInkStorage(100L, Set.of(InkColors.WHITE, InkColors.CYAN, InkColors.MAGENTA, InkColors.YELLOW, InkColors.BLACK));
+    public DefaultedList<ItemStack> inventory = DefaultedList.ofSize(2, ItemStack.EMPTY);
+    public IndividualCappedInkStorage inkStorage = new IndividualCappedInkStorage(51200L, Set.of(InkColors.WHITE, InkColors.CYAN, InkColors.MAGENTA, InkColors.YELLOW, InkColors.BLACK));
     protected boolean inkDirty;
+    public int cyanAmount = 0;
+    public int magentaAmount = 0;
+    public int yellowAmount = 0;
+    public int blackAmount = 0;
 
     public PrinterBlockEntity() {
         this(BlockPos.ORIGIN, ExspBlocks.PRINTER_BLOCK.getDefaultState());
@@ -47,28 +52,21 @@ public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHan
         return new PrinterScreenHandler(syncId, playerInventory, this.pos);
     }
 
-    /*public static void tick(World world, BlockPos pos, BlockState state, PrinterBlockEntity blockEntity) { // ???????
+    public static void tick(World world, BlockPos pos, BlockState state, PrinterBlockEntity blockEntity) { // ???????
         if (!world.isClient) {
             blockEntity.inkDirty = false;
-            if (world.getTime() % 12L == 0L) {
-                if (
-                tryTransferInk(blockEntity.inventory.get(1), blockEntity, InkColors.WHITE)||
-                tryTransferInk(blockEntity.inventory.get(2), blockEntity, InkColors.BLACK)||
-                tryTransferInk(blockEntity.inventory.get(3), blockEntity, InkColors.CYAN)||
-                tryTransferInk(blockEntity.inventory.get(4), blockEntity, InkColors.MAGENTA)||
-                tryTransferInk(blockEntity.inventory.get(5), blockEntity, InkColors.YELLOW)) {
-                    blockEntity.updateInClientWorld();
-                    blockEntity.setInkDirty();
-                    blockEntity.markDirty();
-                }
+            if (tryTransferInk(blockEntity.inventory.get(1), blockEntity)) {
+                blockEntity.updateInClientWorld();
+                blockEntity.setInkDirty();
+                blockEntity.markDirty();
             }
         }
-    }*/
+    }
 
-    public static boolean tryTransferInk(ItemStack source, PrinterBlockEntity destination, InkColor color) {
+    public static boolean tryTransferInk(ItemStack source, PrinterBlockEntity destination) {
         if (source.getItem() instanceof InkStorageItem<?> inkStorageItem) {
             InkStorage itemStorage = inkStorageItem.getEnergyStorage(source);
-            if (InkStorage.transferInk(itemStorage, destination.inkStorage, color) > 0L) {
+            if (InkStorage.transferInk(itemStorage, destination.inkStorage) > 0L) {
                 inkStorageItem.setEnergyStorage(source, itemStorage);
                 return true;
             }
@@ -111,10 +109,12 @@ public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHan
     }
 
     public void updateInClientWorld() {
-        /*if (this.world != null) {
+        if (this.world != null) {
             this.world.updateListeners(this.pos, this.world.getBlockState(this.pos), this.world.getBlockState(this.pos), 4);
-        }*/
-        ((ServerWorld) world).getChunkManager().markForUpdate(pos);
+        }
+        if (world instanceof ServerWorld) {
+            ((ServerWorld) world).getChunkManager().markForUpdate(pos);
+        }
     }
     
     @Override
@@ -147,18 +147,42 @@ public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHan
         super.writeNbt(nbt);
         Inventories.writeNbt(nbt, this.inventory);
         nbt.put("InkStorage", this.inkStorage.toNbt());
+        NbtCompound colorFields = new NbtCompound();
+        colorFields.putInt("cyan",cyanAmount);
+        colorFields.putInt("magenta",magentaAmount);
+        colorFields.putInt("yellow",yellowAmount);
+        colorFields.putInt("black",blackAmount);
+        nbt.put("fields", colorFields);
     }
 
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
         Inventories.readNbt(nbt, this.inventory);
+        NbtCompound colorFields = nbt.getCompound("fields");
+        this.cyanAmount = colorFields.getInt("cyan");
+        this.magentaAmount = colorFields.getInt("magenta");
+        this.yellowAmount = colorFields.getInt("yellow");
+        this.blackAmount = colorFields.getInt("black");
         this.inkStorage = IndividualCappedInkStorage.fromNbt(nbt.getCompound("InkStorage"));
     }
 
     @Override
     public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
         buf.writeBlockPos(this.pos);
+    }
+
+    public void updateColourFields(int cyan, int magenta, int yellow, int black) {
+        Exspectriments.LOGGER.info("Recieved: ".concat(String.valueOf(cyan)).concat(", ")
+                                               .concat(String.valueOf(magenta)).concat(", ")
+                                               .concat(String.valueOf(yellow)).concat(", ")
+                                               .concat(String.valueOf(black)));
+        this.cyanAmount = cyan;
+        this.magentaAmount = magenta;
+        this.yellowAmount = yellow;
+        this.blackAmount = black;
+        this.updateInClientWorld();
+        this.markDirty();
     }
     
 }

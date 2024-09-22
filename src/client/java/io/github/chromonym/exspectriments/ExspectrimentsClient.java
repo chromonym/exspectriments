@@ -19,6 +19,7 @@ public class ExspectrimentsClient implements ClientModInitializer {
 		ExspModelLayers.register();
 		ExspArmorRenderers.register();
 		ExspScreens.register();
+		ExspClientRecievers.registerReceivers();
 
 		setupFluidRendering(ExspFluids.LIQUID_TOPAZ, ExspFluids.FLOWING_LIQUID_TOPAZ, "liquid_topaz");
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_TOPAZ_SPARKLE, LitParticle.Factory::new);

@@ -51,17 +51,17 @@ public class PrinterScreenHandler extends ScreenHandler {
         } else {
             throw new IllegalArgumentException("GUI called with a position where no valid BlockEntity exists");
         }
-        checkSize(printerBlockEntity, 6);
+        checkSize(printerBlockEntity, 2);
         printerBlockEntity.onOpen(playerInventory.player);
         int m;
         int l;
 
-        this.addSlot(new DyeableSlot(printerBlockEntity, 0, 15, 18));
-        this.addSlot(new InkStorageSlot(printerBlockEntity, 1, 71, 17));
-        this.addSlot(new InkStorageSlot(printerBlockEntity, 2, 122, 17));
+        this.addSlot(new DyeableSlot(printerBlockEntity, 0, 43, 17));
+        this.addSlot(new InkStorageSlot(printerBlockEntity, 1, 146, 13));
+        /*this.addSlot(new InkStorageSlot(printerBlockEntity, 2, 122, 17));
         this.addSlot(new InkStorageSlot(printerBlockEntity, 3, 21, 49));
         this.addSlot(new InkStorageSlot(printerBlockEntity, 4, 71, 49));
-        this.addSlot(new InkStorageSlot(printerBlockEntity, 5, 122, 49));
+        this.addSlot(new InkStorageSlot(printerBlockEntity, 5, 122, 49));*/
 
         // The player inventory
         for (m = 0; m < 3; ++m) {

@@ -1,0 +1,8 @@
+{
+    "variants": {
+        "facing=north": { "model": "exspectriments:block/printer", "uvlock": false },
+        "facing=east":  { "model": "exspectriments:block/printer", "y":  90, "uvlock": false },
+        "facing=south": { "model": "exspectriments:block/printer", "y": 180, "uvlock": false },
+        "facing=west":  { "model": "exspectriments:block/printer", "y": 270, "uvlock": false }
+    }
+}
