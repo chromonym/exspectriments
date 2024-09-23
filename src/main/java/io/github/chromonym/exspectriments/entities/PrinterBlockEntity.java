@@ -11,7 +11,6 @@ import de.dafuqs.spectrum.energy.color.InkColors;
 import de.dafuqs.spectrum.energy.storage.IndividualCappedInkStorage;
 import io.github.chromonym.exspectriments.ExspBlockEntities;
 import io.github.chromonym.exspectriments.ExspBlocks;
-import io.github.chromonym.exspectriments.Exspectriments;
 import io.github.chromonym.exspectriments.screenhandlers.PrinterScreenHandler;
 import net.fabricmc.fabric.api.screenhandler.v1.ExtendedScreenHandlerFactory;
 import net.minecraft.block.BlockState;
@@ -50,7 +49,7 @@ public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHan
 
     @Override
     public ScreenHandler createMenu(int syncId, PlayerInventory playerInventory, PlayerEntity player) {
-        return new PrinterScreenHandler(syncId, playerInventory, this.pos);
+        return new PrinterScreenHandler(syncId, playerInventory, this.pos, this.cyanAmount, this.magentaAmount, this.yellowAmount, this.blackAmount);
     }
 
     public static void tick(World world, BlockPos pos, BlockState state, PrinterBlockEntity blockEntity) { // ???????
@@ -156,6 +155,22 @@ public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHan
         nbt.put("fields", colorFields);
     }
 
+    public int getCyan() {
+        return this.cyanAmount;
+    }
+
+    public int getMagenta() {
+        return this.magentaAmount;
+    }
+
+    public int getYellow() {
+        return this.yellowAmount;
+    }
+
+    public int getBlack() {
+        return this.blackAmount;
+    }
+
     @Override
     public void readNbt(NbtCompound nbt) {
         super.readNbt(nbt);
@@ -171,6 +186,10 @@ public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHan
     @Override
     public void writeScreenOpeningData(ServerPlayerEntity player, PacketByteBuf buf) {
         buf.writeBlockPos(this.pos);
+        buf.writeInt(this.cyanAmount);
+        buf.writeInt(this.magentaAmount);
+        buf.writeInt(this.yellowAmount);
+        buf.writeInt(this.blackAmount);
     }
 
     public void updateColourFields(int cyan, int magenta, int yellow, int black) {
@@ -211,5 +230,4 @@ public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHan
         this.inkStorage.drainEnergy(InkColors.BLACK, this.blackAmount);
         this.inkStorage.drainEnergy(InkColors.WHITE, 100L);
     }
-
 }

@@ -12,7 +12,7 @@
             "type": "spectrum:pedestal_crafting",
             "title": "Recipe",
             "recipe": "exspectriments:pedestal/printer",
-            "text": ""
+            "text": "Each print costs $(c_white)100 White Ink$() plus however much of the other inks you specify."
         }
     ]
 }

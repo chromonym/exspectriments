@@ -41,13 +41,17 @@ public class PrinterScreen extends HandledScreen<PrinterScreenHandler> {
     protected TextFieldWidget magentaField;
     protected TextFieldWidget yellowField;
     protected TextFieldWidget blackField;
-    protected int cyanAmount = 0;
-    protected int magentaAmount = 0;
-    protected int yellowAmount = 0;
-    protected int blackAmount = 0;
+    protected int cyanAmount;
+    protected int magentaAmount;
+    protected int yellowAmount;
+    protected int blackAmount;
 
     public PrinterScreen(PrinterScreenHandler handler, PlayerInventory inventory, Text title) {
         super(handler, inventory, title);
+        this.cyanAmount = handler.cyanAmount;
+        this.magentaAmount = handler.magentaAmount;
+        this.yellowAmount = handler.yellowAmount;
+        this.blackAmount = handler.blackAmount;
     }
 
     @Override
@@ -126,10 +130,10 @@ public class PrinterScreen extends HandledScreen<PrinterScreenHandler> {
 
         this.inkMeter = new InkMeterWidget(startX+140, startY+34, 40, this, this.handler.getBlockEntity());
 
-        this.cyanField = addTextFieldWidget(startX+45, startY+42, Text.literal("Cyan"), String.valueOf(this.handler.getBlockEntity().cyanAmount), this::isPositiveWholeNumber);
-        this.magentaField = addTextFieldWidget(startX+89, startY+42, Text.literal("Magenta"), String.valueOf(this.handler.getBlockEntity().magentaAmount), this::isPositiveWholeNumber);
-        this.yellowField = addTextFieldWidget(startX+45, startY+59, Text.literal("Yellow"), String.valueOf(this.handler.getBlockEntity().yellowAmount), this::isPositiveWholeNumber);
-        this.blackField = addTextFieldWidget(startX+89, startY+59, Text.literal("Black"), String.valueOf(this.handler.getBlockEntity().blackAmount), this::isPositiveWholeNumber);
+        this.cyanField = addTextFieldWidget(startX+45, startY+42, Text.literal("Cyan"), String.valueOf(cyanAmount), this::isPositiveWholeNumber);
+        this.magentaField = addTextFieldWidget(startX+89, startY+42, Text.literal("Magenta"), String.valueOf(magentaAmount), this::isPositiveWholeNumber);
+        this.yellowField = addTextFieldWidget(startX+45, startY+59, Text.literal("Yellow"), String.valueOf(yellowAmount), this::isPositiveWholeNumber);
+        this.blackField = addTextFieldWidget(startX+89, startY+59, Text.literal("Black"), String.valueOf(blackAmount), this::isPositiveWholeNumber);
 
         /*this.whiteMeter = new SingleInkMeterWidget(startX+90, startY+17, 5, 16, this, this.handler.getBlockEntity(), InkColors.WHITE);
         this.whiteInc = new InkcrementWidget(startX+97, startY+16, false, InkColors.WHITE);

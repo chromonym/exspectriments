@@ -23,6 +23,10 @@ public class PrinterScreenHandler extends ScreenHandler {
     public final ServerPlayerEntity player;
     protected final World world;
     protected final CraftingResultInventory resultInventory = new CraftingResultInventory();
+    public int cyanAmount;
+    public int magentaAmount;
+    public int yellowAmount;
+    public int blackAmount;
 
     @Override
     public void sendContentUpdates() {
@@ -34,11 +38,15 @@ public class PrinterScreenHandler extends ScreenHandler {
      }
 
     public PrinterScreenHandler(int syncId, PlayerInventory playerInventory, PacketByteBuf buf) {
-        this(syncId, playerInventory, buf.readBlockPos());
+        this(syncId, playerInventory, buf.readBlockPos(), buf.readInt(), buf.readInt(), buf.readInt(), buf.readInt());
     }
 
-    public PrinterScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos readBlockPos) {
+    public PrinterScreenHandler(int syncId, PlayerInventory playerInventory, BlockPos readBlockPos, int cyan, int magenta, int yellow, int black) {
         super(ExspScreenHandlers.PRINTER_SCREEN_HANDLER, syncId);
+        this.cyanAmount = cyan;
+        this.magentaAmount = magenta;
+        this.yellowAmount = yellow;
+        this.blackAmount = black;
         PlayerEntity var6 = playerInventory.player;
         ServerPlayerEntity var10001;
         if (var6 instanceof ServerPlayerEntity serverPlayerEntity) {
