@@ -2,11 +2,11 @@ package io.github.chromonym.exspectriments.entities;
 
 import java.util.Iterator;
 
+import de.dafuqs.spectrum.helpers.InventoryHelper;
 import io.github.chromonym.exspectriments.ExspBlockEntities;
 import io.github.chromonym.exspectriments.ExspBlocks;
 import io.github.chromonym.exspectriments.ExspItemTags;
 import io.github.chromonym.exspectriments.ExspRecipes;
-import io.github.chromonym.exspectriments.Exspectriments;
 import io.github.chromonym.exspectriments.recipes.PigmentExtractorRecipe;
 import io.github.chromonym.exspectriments.screenhandlers.PigmentExtractorScreenHandler;
 import net.minecraft.block.BlockState;
@@ -223,11 +223,11 @@ public class PigmentExtractorBlockEntity extends LockableContainerBlockEntity im
                 blockEntity.fuelCooldownTime--;
             }
             if (blockEntity.fuelCooldownTime == 0 && canUseAsFuel(fuel)) {
-                blockEntity.removeStack(1, 1);
                 if (fuel.isIn(ExspItemTags.PIGMENT_EXTRACTOR_DOUBLE_FUEL)) {
                     blockEntity.craft(world);
                 }
                 blockEntity.craft(world);
+                blockEntity.removeStack(1, 1);
                 blockEntity.growthTime = 0;
                 blockEntity.fuelCooldownTime = 10;
             } else {
@@ -250,27 +250,10 @@ public class PigmentExtractorBlockEntity extends LockableContainerBlockEntity im
         ItemStack recipeInput = this.getStack(0);
         PigmentExtractorRecipe recipe = this.matchGetter.getFirstMatch(this, world).orElse(null);
         if (recipe != null) {
-            Exspectriments.LOGGER.info(recipe.getIngredients().get(0).toString() + ", " + recipe.getOutput(null).toString());
-            this.tryAddToInv(recipe.craft(this, null));
+            ItemStack recipeOutput = recipe.getOutput(null);
+            InventoryHelper.addToInventory(this, recipeOutput.copy(), 2, 10);
             if (Math.random() <= recipe.getReduplicationChance()) {
-                this.tryAddToInv(recipeInput.getItem().getDefaultStack());
-            }
-        }
-    }
-
-    private void tryAddToInv(ItemStack defaultStack) {
-        ItemStack toAdd = defaultStack.copy();
-        int j;
-        for (j=2;j<10;++j) {
-            ItemStack currentStack = this.getStack(j);
-            if (ItemStack.canCombine(currentStack, toAdd) || currentStack.isEmpty()) {
-                int overLimit = Math.max(currentStack.getCount()+toAdd.getCount() - toAdd.getMaxCount(), 0);
-                currentStack.increment(toAdd.getCount()-overLimit);
-                toAdd.setCount(overLimit);
-                this.markDirty();
-            }
-            if (toAdd.getCount() == 0) {
-                return;
+                InventoryHelper.addToInventory(this, recipeInput.getItem().getDefaultStack(), 2, 10);
             }
         }
     }

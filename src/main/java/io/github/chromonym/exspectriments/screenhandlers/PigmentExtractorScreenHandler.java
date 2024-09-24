@@ -2,6 +2,7 @@ package io.github.chromonym.exspectriments.screenhandlers;
 
 import io.github.chromonym.exspectriments.ExspScreenHandlers;
 import io.github.chromonym.exspectriments.screenhandlers.slots.PigmentExtractorFuelSlot;
+import io.github.chromonym.exspectriments.screenhandlers.slots.PigmentExtractorInputSlot;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.inventory.Inventory;
@@ -31,7 +32,7 @@ public class PigmentExtractorScreenHandler extends ScreenHandler {
         this.world = playerInventory.player.getWorld();
         this.propertyDelegate = propertyDelegate;
         
-        this.addSlot(new Slot(inventory, 0, 26, 26));
+        this.addSlot(new PigmentExtractorInputSlot(inventory, 0, 26, 26));
         this.addSlot(new PigmentExtractorFuelSlot(inventory, 1, 57, 53)); // fuel slot
 
         int j;

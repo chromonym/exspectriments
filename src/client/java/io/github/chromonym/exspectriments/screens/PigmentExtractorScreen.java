@@ -27,6 +27,11 @@ public class PigmentExtractorScreen extends HandledScreen<PigmentExtractorScreen
         int x = (width - backgroundWidth) / 2;
         int y = (height - backgroundHeight) / 2;
         context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
+        int growthTimeTotal = ((PigmentExtractorScreenHandler)this.handler).getGrowthTimeTotal();
+        int growthTime = ((PigmentExtractorScreenHandler)this.handler).getGrowthTime();
+        if (growthTimeTotal > 0) {
+            context.drawTexture(TEXTURE, this.x + 55, this.y + 26, 176, 0, growthTime * 22 / growthTimeTotal, 16);
+         }
     }
 
     @Override
