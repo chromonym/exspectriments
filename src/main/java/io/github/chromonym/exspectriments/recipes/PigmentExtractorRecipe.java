@@ -12,14 +12,20 @@ import net.minecraft.util.Identifier;
 public class PigmentExtractorRecipe extends AbstractCookingRecipe {
 
     protected final float reduplication_chance;
+    protected final Identifier unlockAdvancement;
 
-    public PigmentExtractorRecipe(Identifier id, Ingredient input, ItemStack output, int growthTime, float reduplication_chance) {
+    public PigmentExtractorRecipe(Identifier id, Ingredient input, ItemStack output, int growthTime, float reduplication_chance, Identifier unlockAdvancement) {
         super(ExspRecipes.PIGMENT_EXTRACTOR_RECIPE, id, "", CookingRecipeCategory.MISC, input, output, 0.0f, growthTime);
         this.reduplication_chance = reduplication_chance;
+        this.unlockAdvancement = unlockAdvancement;
     }
 
     public float getReduplicationChance() {
         return this.reduplication_chance;
+    }
+
+    public Identifier getUnlockAdvancement() {
+        return this.unlockAdvancement;
     }
 
     @Override

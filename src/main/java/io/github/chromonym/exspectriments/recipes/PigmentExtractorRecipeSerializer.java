@@ -11,6 +11,7 @@ import net.minecraft.network.PacketByteBuf;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.JsonHelper;
 
 public class PigmentExtractorRecipeSerializer implements RecipeSerializer<PigmentExtractorRecipe> {
 
@@ -20,6 +21,13 @@ public class PigmentExtractorRecipeSerializer implements RecipeSerializer<Pigmen
 
         if (recipeJson.input == null || recipeJson.output == null) {
             throw new JsonSyntaxException("A required attribute is missing!");
+        }
+        Identifier unlockAdvancement;
+        String adv = JsonHelper.getString(json, "advancement", "spectrum:collect_all_basic_pigments_besides_brown");
+        if (Identifier.isValid(adv)) {
+            unlockAdvancement = new Identifier(adv);
+        } else {
+            unlockAdvancement = new Identifier("spectrum", "collect_all_basic_pigments_besides_brown");
         }
         if (recipeJson.growth_time <= 0) {
             recipeJson.growth_time = 300;
@@ -34,7 +42,7 @@ public class PigmentExtractorRecipeSerializer implements RecipeSerializer<Pigmen
         Ingredient input = Ingredient.fromJson(recipeJson.input);
         ItemStack output = RecipeUtils.itemStackWithNbtFromJson(recipeJson.output);
 
-        return new PigmentExtractorRecipe(id, input, output, recipeJson.growth_time, recipeJson.reduplication_chance);
+        return new PigmentExtractorRecipe(id, input, output, recipeJson.growth_time, recipeJson.reduplication_chance, unlockAdvancement);
         
     }
 
@@ -44,7 +52,8 @@ public class PigmentExtractorRecipeSerializer implements RecipeSerializer<Pigmen
         int growthTime = buf.readInt();
         float reduplicationChance = buf.readFloat();
         ItemStack output = buf.readItemStack();
-        return new PigmentExtractorRecipe(id, input, output, growthTime, reduplicationChance);
+        Identifier unlockAdvancement = buf.readIdentifier();
+        return new PigmentExtractorRecipe(id, input, output, growthTime, reduplicationChance, unlockAdvancement);
     }
 
     @Override
@@ -53,6 +62,7 @@ public class PigmentExtractorRecipeSerializer implements RecipeSerializer<Pigmen
         buf.writeInt(recipe.getCookTime());
         buf.writeFloat(recipe.getReduplicationChance());
         buf.writeItemStack(recipe.getOutput(null));
+        buf.writeIdentifier(recipe.getUnlockAdvancement());
     }
     
     public class PigmentExtractorJsonFormat {
@@ -60,6 +70,7 @@ public class PigmentExtractorRecipeSerializer implements RecipeSerializer<Pigmen
         int growth_time;
         float reduplication_chance;
         JsonObject output;
+        String advancement;
     }
 
     public static final PigmentExtractorRecipeSerializer INSTANCE = new PigmentExtractorRecipeSerializer();
