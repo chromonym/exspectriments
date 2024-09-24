@@ -4,6 +4,7 @@
     "block.exspectriments.liquid_citrine": "Liquid Citrine",
     "block.exspectriments.liquid_onyx": "Liquid Onyx",
     "block.exspectriments.liquid_moonstone": "Liquid Moonstone",
+    "block.exspectriments.pigment_extractor": "Pigment Extractor",
     "block.exspectriments.printer": "Printer",
 
     "effect.exspectriments.cloaking": "Cloaking",
@@ -30,6 +31,8 @@
     "tag.item.exspectriments.balls": "Balls",
     "tag.item.exspectriments.lab_coats": "Lab Coats",
     "tag.item.exspectriments.liquid_gems": "Liquid Gem Buckets",
+    "tag.item.exspectriments.pigment_extractor_fuel": "Pigment Extractor Fuel",
+    "tag.item.exspectriments.pigment_extractor_double_fuel": "Pigment Extractor Double Fuel",
     "tag.item.exspectriments.sticks": "Sticks",
 
     "recipe.exspectriments.fusion_shrine.explanation.topaz_result": "Liquid in shrine becomes Liquid Topaz",

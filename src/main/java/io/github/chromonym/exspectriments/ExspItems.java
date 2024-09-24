@@ -35,6 +35,7 @@ public class ExspItems {
     public static final Item LAB_COAT_ROSE_TAIL = register(new LabCoatTailArmorItem(LabCoatArmorMaterial.INSTANCE, ArmorItem.Type.CHESTPLATE, new FabricItemSettings(), new Identifier(Exspectriments.MOD_ID, "textures/armor/lab_coat_rose_tail.png")), "lab_coat_rose_tail");
 
     public static final Item PRINTER_BLOCK_ITEM = register(new BlockItem(ExspBlocks.PRINTER_BLOCK, new FabricItemSettings()),"printer");
+    public static final Item PIGMENT_EXTRACTOR_BLOCK_ITEM = register(new BlockItem(ExspBlocks.PIGMENT_EXTRACTOR, new FabricItemSettings()), "pigment_extractor");
 
     public static void initialize() {
     }

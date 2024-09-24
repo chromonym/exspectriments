@@ -27,6 +27,7 @@ public class Exspectriments implements ModInitializer {
 		// However, some things (like resources) may still be uninitialized.
 		// Proceed with mild caution.
 
+		ExspItemTags.initialize();
 		ExspScreenHandlers.initialize();
 		ExspParticleTypes.initialize();
 		ExspStatusEffects.initialize();
@@ -35,6 +36,7 @@ public class Exspectriments implements ModInitializer {
 		ExspBlockEntities.initialize();
 		ExspItems.initialize();
 		ExspServerRecievers.registerReceivers();
+		ExspRecipes.initialize();
 		
 		ItemSubGroupEvents.modifyEntriesEvent(ItemGroupIDs.SUBTAB_RESOURCES).register(content -> {
 			content.addAfter(SpectrumBlocks.RADIATING_ENDER, ExspItems.HOSTILE_APPROXIMATOR);
