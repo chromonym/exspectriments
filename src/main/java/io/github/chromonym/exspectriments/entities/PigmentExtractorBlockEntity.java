@@ -6,6 +6,7 @@ import io.github.chromonym.exspectriments.ExspBlockEntities;
 import io.github.chromonym.exspectriments.ExspBlocks;
 import io.github.chromonym.exspectriments.ExspItemTags;
 import io.github.chromonym.exspectriments.ExspRecipes;
+import io.github.chromonym.exspectriments.Exspectriments;
 import io.github.chromonym.exspectriments.recipes.PigmentExtractorRecipe;
 import io.github.chromonym.exspectriments.screenhandlers.PigmentExtractorScreenHandler;
 import net.minecraft.block.BlockState;
@@ -128,8 +129,8 @@ public class PigmentExtractorBlockEntity extends LockableContainerBlockEntity im
         }
     }
 
-    private int getCookTime(World world, PigmentExtractorBlockEntity pigmentExtractorBlockEntity) {
-        return (Integer)pigmentExtractorBlockEntity.matchGetter.getFirstMatch(pigmentExtractorBlockEntity, world).map(PigmentExtractorRecipe::getCookTime).orElse(300);
+    private static int getCookTime(World world, PigmentExtractorBlockEntity pigmentExtractorBlockEntity) {
+        return (Integer)pigmentExtractorBlockEntity.matchGetter.getFirstMatch(pigmentExtractorBlockEntity, world).map(PigmentExtractorRecipe::getCookTime).orElse(0);
     }
 
     @Override
@@ -174,7 +175,7 @@ public class PigmentExtractorBlockEntity extends LockableContainerBlockEntity im
         }
     }
 
-    private boolean canUseAsFuel(ItemStack stack) {
+    private static boolean canUseAsFuel(ItemStack stack) {
         return stack.isIn(ExspItemTags.PIGMENT_EXTRACTOR_FUEL) || stack.isIn(ExspItemTags.PIGMENT_EXTRACTOR_DOUBLE_FUEL);
     }
 
@@ -197,21 +198,80 @@ public class PigmentExtractorBlockEntity extends LockableContainerBlockEntity im
         return Text.translatable("block.exspectriments.pigment_extractor");
     }
 
-    public void readNbt(NbtCompound nbt) {
-      super.readNbt(nbt);
-      this.inventory = DefaultedList.ofSize(this.size(), ItemStack.EMPTY);
-      Inventories.readNbt(nbt, this.inventory);
-      this.growthTime = nbt.getShort("GrowthTime");
-      this.growthTimeTotal = nbt.getShort("GrowthTimeTotal");
-      this.fuelCooldownTime = nbt.getShort("FuelCooldownTime");
+        public void readNbt(NbtCompound nbt) {
+        super.readNbt(nbt);
+        this.inventory = DefaultedList.ofSize(this.size(), ItemStack.EMPTY);
+        Inventories.readNbt(nbt, this.inventory);
+        this.growthTime = nbt.getShort("GrowthTime");
+        this.growthTimeTotal = nbt.getShort("GrowthTimeTotal");
+        this.fuelCooldownTime = nbt.getShort("FuelCooldownTime");
 
-   }
+    }
 
-   protected void writeNbt(NbtCompound nbt) {
-      super.writeNbt(nbt);
-      nbt.putInt("GrowthTime", this.growthTime);
-      nbt.putInt("GrowthTimeTotal", this.growthTimeTotal);
-      nbt.putInt("FuelCooldownTime", this.fuelCooldownTime);
-      Inventories.writeNbt(nbt, this.inventory);
-   }
+    protected void writeNbt(NbtCompound nbt) {
+        super.writeNbt(nbt);
+        nbt.putInt("GrowthTime", this.growthTime);
+        nbt.putInt("GrowthTimeTotal", this.growthTimeTotal);
+        nbt.putInt("FuelCooldownTime", this.fuelCooldownTime);
+        Inventories.writeNbt(nbt, this.inventory);
+    }
+
+    public static void tick(World world, BlockPos blockPos, BlockState blockState, PigmentExtractorBlockEntity blockEntity) {
+        ItemStack fuel = blockEntity.getStack(1);
+        if (blockEntity.growthTimeTotal > 0) { // if item is a valid craft
+            if (blockEntity.fuelCooldownTime > 0) {
+                blockEntity.fuelCooldownTime--;
+            }
+            if (blockEntity.fuelCooldownTime == 0 && canUseAsFuel(fuel)) {
+                blockEntity.removeStack(1, 1);
+                if (fuel.isIn(ExspItemTags.PIGMENT_EXTRACTOR_DOUBLE_FUEL)) {
+                    blockEntity.craft(world);
+                }
+                blockEntity.craft(world);
+                blockEntity.growthTime = 0;
+                blockEntity.fuelCooldownTime = 10;
+            } else {
+                if (canUseAsFuel(fuel)) {
+                    blockEntity.growthTime += Math.max((int)(blockEntity.growthTimeTotal/10),1); // just for the visuals
+                } else {
+                    blockEntity.growthTime++;
+                }
+                if (blockEntity.growthTime >= blockEntity.growthTimeTotal) {
+                    blockEntity.craft(world);
+                    blockEntity.growthTime = 0;
+                }
+            }
+        } else {
+            blockEntity.growthTime = 0;
+        }
+    }
+
+    public void craft(World world) {
+        ItemStack recipeInput = this.getStack(0);
+        PigmentExtractorRecipe recipe = this.matchGetter.getFirstMatch(this, world).orElse(null);
+        if (recipe != null) {
+            Exspectriments.LOGGER.info(recipe.getIngredients().get(0).toString() + ", " + recipe.getOutput(null).toString());
+            this.tryAddToInv(recipe.craft(this, null));
+            if (Math.random() <= recipe.getReduplicationChance()) {
+                this.tryAddToInv(recipeInput.getItem().getDefaultStack());
+            }
+        }
+    }
+
+    private void tryAddToInv(ItemStack defaultStack) {
+        ItemStack toAdd = defaultStack.copy();
+        int j;
+        for (j=2;j<10;++j) {
+            ItemStack currentStack = this.getStack(j);
+            if (ItemStack.canCombine(currentStack, toAdd) || currentStack.isEmpty()) {
+                int overLimit = Math.max(currentStack.getCount()+toAdd.getCount() - toAdd.getMaxCount(), 0);
+                currentStack.increment(toAdd.getCount()-overLimit);
+                toAdd.setCount(overLimit);
+                this.markDirty();
+            }
+            if (toAdd.getCount() == 0) {
+                return;
+            }
+        }
+    }
 }

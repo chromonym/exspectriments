@@ -21,20 +21,20 @@ public class PigmentExtractorRecipeSerializer implements RecipeSerializer<Pigmen
         if (recipeJson.input == null || recipeJson.output == null) {
             throw new JsonSyntaxException("A required attribute is missing!");
         }
-        if (recipeJson.growthTime <= 0) {
-            recipeJson.growthTime = 300;
+        if (recipeJson.growth_time <= 0) {
+            recipeJson.growth_time = 300;
         }
-        if (recipeJson.reduplicationChance < 0) {
-            recipeJson.reduplicationChance = 0;
+        if (recipeJson.reduplication_chance < 0) {
+            recipeJson.reduplication_chance = 0;
         }
-        if (recipeJson.reduplicationChance > 1) {
-            recipeJson.reduplicationChance = 1;
+        if (recipeJson.reduplication_chance > 1) {
+            recipeJson.reduplication_chance = 1;
         }
 
         Ingredient input = Ingredient.fromJson(recipeJson.input);
         ItemStack output = RecipeUtils.itemStackWithNbtFromJson(recipeJson.output);
 
-        return new PigmentExtractorRecipe(id, input, output, recipeJson.growthTime, recipeJson.reduplicationChance);
+        return new PigmentExtractorRecipe(id, input, output, recipeJson.growth_time, recipeJson.reduplication_chance);
         
     }
 
@@ -57,8 +57,8 @@ public class PigmentExtractorRecipeSerializer implements RecipeSerializer<Pigmen
     
     public class PigmentExtractorJsonFormat {
         JsonObject input;
-        int growthTime;
-        float reduplicationChance;
+        int growth_time;
+        float reduplication_chance;
         JsonObject output;
     }
 

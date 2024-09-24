@@ -1,12 +1,14 @@
 package io.github.chromonym.exspectriments.blocks;
 
+import io.github.chromonym.exspectriments.ExspBlockEntities;
 import io.github.chromonym.exspectriments.entities.PigmentExtractorBlockEntity;
-import io.github.chromonym.exspectriments.entities.PrinterBlockEntity;
 import net.minecraft.block.AbstractBlock;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
 import net.minecraft.block.entity.BlockEntity;
+import net.minecraft.block.entity.BlockEntityTicker;
+import net.minecraft.block.entity.BlockEntityType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.screen.NamedScreenHandlerFactory;
 import net.minecraft.util.ActionResult;
@@ -57,5 +59,10 @@ public class PigmentExtractorBlock extends BlockWithEntity {
     @Override
     public BlockRenderType getRenderType(BlockState state) {
         return BlockRenderType.MODEL;
+    }
+
+    @Override
+    public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
+        return world.isClient ? null : checkType(type, ExspBlockEntities.PIGMENT_EXTRACTOR_BLOCK_ENTITY, PigmentExtractorBlockEntity::tick);
     }
 }

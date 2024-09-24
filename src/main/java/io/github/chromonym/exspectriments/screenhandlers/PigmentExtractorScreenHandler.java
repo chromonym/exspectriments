@@ -31,15 +31,20 @@ public class PigmentExtractorScreenHandler extends ScreenHandler {
         this.world = playerInventory.player.getWorld();
         this.propertyDelegate = propertyDelegate;
         
-        this.addSlot(new Slot(inventory, 0, 0, 0));
-        this.addSlot(new PigmentExtractorFuelSlot(inventory, 1, 10, 0)); // fuel slot
+        this.addSlot(new Slot(inventory, 0, 26, 26));
+        this.addSlot(new PigmentExtractorFuelSlot(inventory, 1, 57, 53)); // fuel slot
 
         int j;
+        int k;
 
-        // TODO add output slots (index 2-9) here
+        for (j = 0; j < 2 ; ++j) {
+            for (k = 0; k < 4; ++k) {
+                this.addSlot(new Slot(inventory, 2 + k + j * 4, 89 + k * 18, 17 + j * 18));
+            }
+        }
 
         for(j = 0; j < 3; ++j) {
-            for(int k = 0; k < 9; ++k) {
+            for(k = 0; k < 9; ++k) {
             this.addSlot(new Slot(playerInventory, k + j * 9 + 9, 8 + k * 18, 84 + j * 18));
             }
         }
