@@ -60,7 +60,9 @@ public class Exspectriments implements ModInitializer {
 			content.addAfter(SpectrumItems.MUSIC_DISC_EVERREFLECTIVE, ExspItems.LAB_COAT, ExspItems.LAB_COAT_CMY);
 		});
 		ItemSubGroupEvents.modifyEntriesEvent(ItemGroupIDs.SUBTAB_FUNCTIONAL).register(content -> {
-			content.addAfter(SpectrumBlocks.COLOR_PICKER, ExspItems.PRINTER_BLOCK_ITEM);
+			content.addAfter(SpectrumBlocks.COLOR_PICKER,
+				ExspItems.PIGMENT_EXTRACTOR_BLOCK_ITEM,
+				ExspItems.PRINTER_BLOCK_ITEM);
 		});
 
 		if (FabricLoader.getInstance().isModLoaded("roses_utility_and_lore_mod")) {

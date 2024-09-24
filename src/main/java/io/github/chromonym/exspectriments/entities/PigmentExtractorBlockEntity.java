@@ -18,6 +18,9 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.listener.ClientPlayPacketListener;
+import net.minecraft.network.packet.Packet;
+import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.recipe.RecipeInputProvider;
 import net.minecraft.recipe.RecipeManager;
 import net.minecraft.recipe.RecipeMatcher;
@@ -126,6 +129,7 @@ public class PigmentExtractorBlockEntity extends LockableContainerBlockEntity im
             this.growthTimeTotal = getCookTime(this.world, this);
             this.growthTime = 0;
             this.markDirty();
+            world.updateListeners(pos, getCachedState(), getCachedState(), 0);
         }
     }
 
@@ -256,5 +260,15 @@ public class PigmentExtractorBlockEntity extends LockableContainerBlockEntity im
                 InventoryHelper.addToInventory(this, recipeInput.getItem().getDefaultStack(), 2, 10);
             }
         }
+    }
+
+    @Override
+    public Packet<ClientPlayPacketListener> toUpdatePacket() {
+        return BlockEntityUpdateS2CPacket.create(this);
+    }
+
+    @Override
+    public NbtCompound toInitialChunkDataNbt() {
+        return createNbt();
     }
 }

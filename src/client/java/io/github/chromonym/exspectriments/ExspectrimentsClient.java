@@ -1,6 +1,7 @@
 package io.github.chromonym.exspectriments;
 
 import de.dafuqs.spectrum.particle.client.LitParticle;
+import io.github.chromonym.exspectriments.renderers.PigmentExtractorRenderer;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
 import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
@@ -9,6 +10,7 @@ import net.fabricmc.fabric.api.client.render.fluid.v1.SimpleFluidRenderHandler;
 import net.fabricmc.loader.api.FabricLoader;
 import net.minecraft.client.particle.WaterSplashParticle;
 import net.minecraft.client.render.RenderLayer;
+import net.minecraft.client.render.block.entity.BlockEntityRendererFactories;
 import net.minecraft.fluid.Fluid;
 import net.minecraft.util.Identifier;
 
@@ -20,6 +22,8 @@ public class ExspectrimentsClient implements ClientModInitializer {
 		ExspArmorRenderers.register();
 		ExspScreens.register();
 		ExspClientRecievers.registerReceivers();
+
+		BlockEntityRendererFactories.register(ExspBlockEntities.PIGMENT_EXTRACTOR_BLOCK_ENTITY, PigmentExtractorRenderer::new);
 
 		setupFluidRendering(ExspFluids.LIQUID_TOPAZ, ExspFluids.FLOWING_LIQUID_TOPAZ, "liquid_topaz");
 		ParticleFactoryRegistry.getInstance().register(ExspParticleTypes.LIQUID_TOPAZ_SPARKLE, LitParticle.Factory::new);

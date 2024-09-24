@@ -3,9 +3,11 @@ package io.github.chromonym.exspectriments.blocks;
 import io.github.chromonym.exspectriments.ExspBlockEntities;
 import io.github.chromonym.exspectriments.entities.PigmentExtractorBlockEntity;
 import net.minecraft.block.AbstractBlock;
+import net.minecraft.block.Block;
 import net.minecraft.block.BlockRenderType;
 import net.minecraft.block.BlockState;
 import net.minecraft.block.BlockWithEntity;
+import net.minecraft.block.ShapeContext;
 import net.minecraft.block.entity.BlockEntity;
 import net.minecraft.block.entity.BlockEntityTicker;
 import net.minecraft.block.entity.BlockEntityType;
@@ -16,11 +18,21 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.ItemScatterer;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 
 public class PigmentExtractorBlock extends BlockWithEntity {
+
+    public final VoxelShape SHAPE = Block.createCuboidShape(1.0, 0.0, 1.0, 15.0, 9.0, 15.0);
+
     public PigmentExtractorBlock(AbstractBlock.Settings settings) {
         super(settings);
+    }
+
+    @Override
+	public VoxelShape getOutlineShape(BlockState state, BlockView world, BlockPos pos, ShapeContext ctx) {
+        return SHAPE;
     }
 
     @Override
