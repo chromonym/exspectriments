@@ -1,0 +1,33 @@
+{
+    "type": "spectrum:pedestal",
+    "time": 300,
+    "tier": "simple",
+    "cyan": 0,
+    "magenta": 4,
+    "yellow": 4,
+    "experience": 2.0,
+    "pattern": [
+        "P P",
+        "CDC",
+        "BBB"
+    ],
+    "key": {
+        "C": {
+            "item": "spectrum:polished_calcite_pillar"
+        },
+        "B": {
+            "item": "spectrum:polished_basalt"
+        },
+        "D": {
+            "item": "minecraft:dirt"
+        },
+        "P": {
+            "tag": "spectrum:pigments"
+        }
+    },
+    "result": {
+        "item": "exspectriments:pigment_extractor",
+        "count": 1
+    },
+    "required_advancement": "spectrum:collect_all_basic_pigments_besides_brown"
+}

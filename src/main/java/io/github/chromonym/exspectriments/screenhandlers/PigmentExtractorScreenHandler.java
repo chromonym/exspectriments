@@ -69,11 +69,11 @@ public class PigmentExtractorScreenHandler extends ScreenHandler {
         if (slot.hasStack()) {
             ItemStack itemStack2 = slot.getStack();
             itemStack = itemStack2.copy();
-            if (index < 11) {
-                if (!this.insertItem(itemStack2, 11, this.slots.size(), true)) {
+            if (index < 10) {
+                if (!this.insertItem(itemStack2, 10, this.slots.size(), true)) {
                 return ItemStack.EMPTY;
                 }
-            } else if (!this.insertItem(itemStack2, 0, 11, false)) {
+            } else if (!this.insertItem(itemStack2, 1, 10, false)) {
                 return ItemStack.EMPTY;
             }
 

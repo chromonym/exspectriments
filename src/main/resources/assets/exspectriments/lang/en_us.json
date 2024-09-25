@@ -10,6 +10,7 @@
     "effect.exspectriments.cloaking": "Cloaking",
 
     "emi.category.exspectriments.pigment_extraction": "Pigment Extraction",
+    "emi.text.exspectriments.pigment_extraction": "%s%% duplication",
 
     "item.exspectriments.hostile_approximator": "Hostile Approximator",
     "item.exspectriments.invisible_helmet": "Invisible Helmet",

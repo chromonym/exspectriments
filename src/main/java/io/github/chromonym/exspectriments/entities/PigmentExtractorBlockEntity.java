@@ -256,7 +256,7 @@ public class PigmentExtractorBlockEntity extends LockableContainerBlockEntity im
         if (recipe != null) {
             ItemStack recipeOutput = recipe.getOutput(null);
             InventoryHelper.addToInventory(this, recipeOutput.copy(), 2, 10);
-            if (Math.random() <= recipe.getReduplicationChance()) {
+            if (Math.random() < recipe.getReduplicationChance() && Math.signum(recipe.getReduplicationChance()) == 1) {
                 InventoryHelper.addToInventory(this, recipeInput.getItem().getDefaultStack(), 2, 10);
             }
         }

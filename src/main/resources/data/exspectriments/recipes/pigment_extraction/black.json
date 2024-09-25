@@ -1,0 +1,13 @@
+{
+    "type": "exspectriments:pigment_extraction",
+    "input": {
+        "item": "spectrum:black_sapling"
+    },
+    "growth_time": 500,
+    "reduplication_chance": 0.025,
+    "output": {
+        "item": "spectrum:black_pigment",
+        "count": 1
+    },
+    "advancement": "spectrum:hidden/collect_pigment/collect_black_pigment"
+}

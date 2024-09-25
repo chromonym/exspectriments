@@ -1,0 +1,13 @@
+{
+    "type": "exspectriments:pigment_extraction",
+    "input": {
+        "item": "spectrum:gray_sapling"
+    },
+    "growth_time": 600,
+    "reduplication_chance": 0.025,
+    "output": {
+        "item": "spectrum:gray_pigment",
+        "count": 1
+    },
+    "advancement": "spectrum:hidden/collect_pigment/collect_gray_pigment"
+}

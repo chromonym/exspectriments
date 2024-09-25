@@ -30,7 +30,7 @@ public class PigmentExtractorRecipeSerializer implements RecipeSerializer<Pigmen
             unlockAdvancement = new Identifier("spectrum", "collect_all_basic_pigments_besides_brown");
         }
         if (recipeJson.growth_time <= 0) {
-            recipeJson.growth_time = 300;
+            recipeJson.growth_time = 400;
         }
         if (recipeJson.reduplication_chance < 0) {
             recipeJson.reduplication_chance = 0;

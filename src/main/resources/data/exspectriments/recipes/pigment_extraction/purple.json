@@ -1,11 +1,11 @@
 {
     "type": "exspectriments:pigment_extraction",
     "input": {
-        "item": "spectrum:cyan_sapling"
+        "item": "spectrum:purple_sapling"
     },
     "reduplication_chance": 0.025,
     "output": {
-        "item": "spectrum:cyan_pigment",
+        "item": "spectrum:purple_pigment",
         "count": 1
     }
 }

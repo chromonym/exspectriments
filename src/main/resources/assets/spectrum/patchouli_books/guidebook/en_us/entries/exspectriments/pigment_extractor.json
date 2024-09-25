@@ -1,0 +1,18 @@
+{
+    "name": "Pigment Extractor",
+    "icon": "exspectriments:pigment_extractor",
+    "category": "spectrum:exspectriments_category",
+    "advancement": "spectrum:collect_all_basic_pigments_besides_brown",
+    "pages": [
+        {
+            "type": "patchouli:text",
+            "text": "While you're figuring out why $(c_brown)brown$() still eludes you, why not automate those saplings?$(br2)The $(thing)Pigment Extractor$() slowly gives you the relevant pigment (and occasionally more saplings!) of whatever colored sapling you put in."
+        },
+        {
+            "type": "spectrum:pedestal_crafting",
+            "title": "Recipe",
+            "recipe": "exspectriments:pedestal/pigment_extractor",
+            "text": "Use $(item)Vegetal$() or $(item)Bone Meal$() to speed up the process."
+        }
+    ]
+}
