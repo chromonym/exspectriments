@@ -248,6 +248,7 @@ public class PigmentExtractorBlockEntity extends LockableContainerBlockEntity im
         } else {
             blockEntity.growthTime = 0;
         }
+        blockEntity.markDirty();
     }
 
     public void craft(World world) {
