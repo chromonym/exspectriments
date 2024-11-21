@@ -61,7 +61,7 @@ public class PigmentExtractorRecipeSerializer implements RecipeSerializer<Pigmen
         recipe.getIngredients().get(0).write(buf);
         buf.writeInt(recipe.getCookTime());
         buf.writeFloat(recipe.getReduplicationChance());
-        buf.writeItemStack(recipe.getOutput(null));
+        buf.writeItemStack(recipe.getOutput());
         buf.writeIdentifier(recipe.getUnlockAdvancement());
     }
     

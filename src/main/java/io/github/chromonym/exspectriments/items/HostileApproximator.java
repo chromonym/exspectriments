@@ -1,6 +1,7 @@
 package io.github.chromonym.exspectriments.items;
 
 import de.dafuqs.revelationary.api.revelations.CloakedItem;
+import de.dafuqs.spectrum.registries.SpectrumItemGroups;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -9,7 +10,7 @@ import net.minecraft.util.math.random.Random;
 
 public class HostileApproximator extends CloakedItem {
     public HostileApproximator() {
-        super(new FabricItemSettings().maxDamage(16), new Identifier("spectrum","collect_all_basic_shards"), Items.ENDER_PEARL);
+        super(new FabricItemSettings().maxDamage(16).group(SpectrumItemGroups.RESOURCES), new Identifier("spectrum","collect_all_basic_shards"), Items.ENDER_PEARL);
     }
 
     @Override

@@ -17,7 +17,7 @@ public class ExspArmorRenderers {
             LabCoatArmorItem armor = (LabCoatArmorItem)stack.getItem();
             BipedEntityModel<LivingEntity> model = new LabCoatModel(MinecraftClient.getInstance().getEntityModelLoader().getModelPart(ExspModelLayers.LAB_COAT), armor.getSlotType());
             Identifier texture = armor.getArmorTexture(stack, slot);
-            contextModel.copyBipedStateTo(model);
+            contextModel.setAttributes(model);
             ArmorRenderer.renderPart(matrices, vertexConsumers, light, stack, model, texture);
         };
         ArmorRenderer.register(renderer, ExspItems.LAB_COAT);

@@ -21,7 +21,7 @@ public class PigmentExtractorEMIRecipe extends SpectrumEmiRecipe {
     public PigmentExtractorEMIRecipe(PigmentExtractorRecipe recipe) {
         super(ExspectrimentsEMI.PIGMENT_EXTRACTION_CATEGORY, recipe.getUnlockAdvancement(), recipe.getId(), 84, 26);
         this.inputs = List.of(EmiIngredient.of(recipe.getIngredients().get(0)));
-        this.outputs = List.of(EmiStack.of(recipe.getOutput(null)));
+        this.outputs = List.of(EmiStack.of(recipe.getOutput()));
         this.time = recipe.getCookTime();
         this.reduplicationChance = recipe.getReduplicationChance();
         this.reduplicationText = Text.translatable("emi.text.exspectriments.pigment_extraction", (reduplicationChance*100));

@@ -3,9 +3,8 @@ package io.github.chromonym.exspectriments;
 import de.dafuqs.spectrum.blocks.fluid.SpectrumFluid;
 import io.github.chromonym.exspectriments.fluids.*;
 import net.minecraft.fluid.FlowableFluid;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class ExspFluids {
 
@@ -24,13 +23,13 @@ public class ExspFluids {
 
     public static FlowableFluid register(FlowableFluid item, String id) {
         Identifier itemID = new Identifier(Exspectriments.MOD_ID, id);
-        FlowableFluid registeredItem = Registry.register(Registries.FLUID, itemID, item);
+        FlowableFluid registeredItem = Registry.register(Registry.FLUID, itemID, item);
         return registeredItem;
     }
 
     public static SpectrumFluid register(SpectrumFluid item, String id) {
         Identifier itemID = new Identifier(Exspectriments.MOD_ID, id);
-        SpectrumFluid registeredItem = Registry.register(Registries.FLUID, itemID, item);
+        SpectrumFluid registeredItem = Registry.register(Registry.FLUID, itemID, item);
         return registeredItem;
     }
 }

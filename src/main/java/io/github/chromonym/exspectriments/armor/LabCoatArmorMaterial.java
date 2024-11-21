@@ -1,18 +1,18 @@
 package io.github.chromonym.exspectriments.armor;
 
-import net.minecraft.item.ArmorItem.Type;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class LabCoatArmorMaterial implements ArmorMaterial {
 
     @Override
-    public int getDurability(Type type) {
+    public int getDurability(EquipmentSlot type) {
         return 100;
     }
 
@@ -37,13 +37,13 @@ public class LabCoatArmorMaterial implements ArmorMaterial {
     }
 
     @Override
-    public int getProtection(Type type) {
+    public int getProtectionAmount(EquipmentSlot type) {
         return 2;
     }
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.fromTag(TagKey.of(RegistryKeys.ITEM, new Identifier("wool")));
+        return Ingredient.fromTag(TagKey.of(Registry.ITEM_KEY, new Identifier("wool")));
     }
 
     @Override

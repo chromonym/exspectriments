@@ -2,9 +2,8 @@ package io.github.chromonym.exspectriments;
 
 import net.fabricmc.fabric.api.particle.v1.FabricParticleTypes;
 import net.minecraft.particle.DefaultParticleType;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class ExspParticleTypes {
     
@@ -31,6 +30,6 @@ public class ExspParticleTypes {
     public static void initialize() {}
 
     private static DefaultParticleType register(String name, boolean alwaysShow) {
-        return (DefaultParticleType)Registry.register(Registries.PARTICLE_TYPE, new Identifier(Exspectriments.MOD_ID, name), FabricParticleTypes.simple(alwaysShow));
+        return (DefaultParticleType)Registry.register(Registry.PARTICLE_TYPE, new Identifier(Exspectriments.MOD_ID, name), FabricParticleTypes.simple(alwaysShow));
    }
 }

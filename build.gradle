@@ -68,8 +68,8 @@ dependencies {
     modImplementation("com.github.DaFuqs:DimensionalReverb:${project.dimensional_reverb_version}")
 	modImplementation("vazkii.patchouli:Patchouli:${project.patchouli_version}")
 	modImplementation("dev.emi:trinkets:${project.trinkets_version}")
-	modImplementation("com.github.Noaaan:Matchbooks:${project.matchbooks_version}")
-	modImplementation("com.github.emilyploszaj:step-height-entity-attribute:${project.step_height_attribute_version}")
+	//modImplementation("com.github.Noaaan:Matchbooks:${project.matchbooks_version}")
+	//modImplementation("com.github.emilyploszaj:step-height-entity-attribute:${project.step_height_attribute_version}")
     modImplementation("com.jamieswhiteshirt:reach-entity-attributes:${project.reach_entity_attributes_version}")
     modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-base:${project.cca_version}")
     modImplementation("dev.onyxstudios.cardinal-components-api:cardinal-components-entity:${project.cca_version}")
@@ -83,8 +83,8 @@ dependencies {
 	modCompileOnly("maven.modrinth:cosmetic-armor:${project.cosmetic_armor_version}")
 	modLocalRuntime("maven.modrinth:cosmetic-armor:${project.cosmetic_armor_version}")
 
-	modCompileOnly("maven.modrinth:roses-thorntilities:${project.roses_thorntilities_version}")
-	modLocalRuntime("maven.modrinth:roses-thorntilities:${project.roses_thorntilities_version}")
+	//modCompileOnly("maven.modrinth:roses-thorntilities:${project.roses_thorntilities_version}")
+	//modLocalRuntime("maven.modrinth:roses-thorntilities:${project.roses_thorntilities_version}")
 
 	modCompileOnly("com.unascribed:ears-api:${project.ears_version}")
 	//modLocalRuntime("maven.modrinth:ears:Lr5BTYBp")
@@ -108,7 +108,7 @@ modrinth {
     projectId = "bIDv7MVg" // This can be the project ID or the slug. Either will work!
     versionType = "release" // This is the default -- can also be `beta` or `alpha`
     uploadFile = remapJar // With Loom, this MUST be set to `remapJar` instead of `jar`!
-    gameVersions = ["1.20.1"] // Must be an array, even with only one version
+    gameVersions = ["1.19.2"] // Must be an array, even with only one version
     loaders = ["fabric", "quilt"] // Must also be an array - no need to specify this if you're using Loom or ForgeGradle
     dependencies { // A special DSL for creating dependencies
         // scope.type
@@ -119,11 +119,11 @@ modrinth {
 		required.project "revelationary"
 		required.project "fractal-lib"
         //optional.version "sodium", "mc1.19.3-0.4.8" // Creates a new optional dependency on this specific version of Sodium
-		optional.project "roses-thorntilities"
+		//optional.project "roses-thorntilities"
 		optional.project "cosmetic-armor"
 		optional.project "emi"
     }
-	syncBodyFrom = rootProject.file("README.md").text
+	//syncBodyFrom = rootProject.file("README.md").text
 }
 
 processResources {

@@ -2,7 +2,6 @@ package io.github.chromonym.exspectriments.blocks;
 
 import org.jetbrains.annotations.Nullable;
 
-import de.dafuqs.spectrum.helpers.Support;
 import io.github.chromonym.exspectriments.ExspBlockEntities;
 import io.github.chromonym.exspectriments.entities.PrinterBlockEntity;
 import net.minecraft.block.AbstractBlock;
@@ -49,7 +48,14 @@ public class PrinterBlock extends HorizontalFacingBlock implements BlockEntityPr
 
     @Override
 	public BlockState getPlacementState(ItemPlacementContext ctx) {
-		return super.getPlacementState(ctx).with(Properties.HORIZONTAL_FACING, ctx.getHorizontalPlayerFacing().getOpposite());
+        Direction[] dirs = Direction.getEntityFacingOrder(ctx.getPlayer());
+        Direction dir;
+        if (dirs[0] == Direction.UP || dirs[0] == Direction.DOWN) {
+            dir = dirs[1];
+        } else {
+            dir = dirs[0];
+        }
+		return super.getPlacementState(ctx).with(Properties.HORIZONTAL_FACING, dir.getOpposite());
 	}
 
     @Override
@@ -102,7 +108,7 @@ public class PrinterBlock extends HorizontalFacingBlock implements BlockEntityPr
 
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(World world, BlockState state, BlockEntityType<T> type) {
-        return Support.checkType(type, ExspBlockEntities.PRINTER_BLOCK_ENTITY, PrinterBlockEntity::tick);
+        return type == ExspBlockEntities.PRINTER_BLOCK_ENTITY ? PrinterBlockEntity::tick : null;
     }
 
     public boolean onSyncedBlockEvent(BlockState state, World world, BlockPos pos, int type, int data) {

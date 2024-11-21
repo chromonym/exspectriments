@@ -6,7 +6,6 @@ import net.minecraft.recipe.AbstractCookingRecipe;
 import net.minecraft.recipe.Ingredient;
 import net.minecraft.recipe.RecipeSerializer;
 import net.minecraft.recipe.RecipeType;
-import net.minecraft.recipe.book.CookingRecipeCategory;
 import net.minecraft.util.Identifier;
 
 public class PigmentExtractorRecipe extends AbstractCookingRecipe {
@@ -15,7 +14,7 @@ public class PigmentExtractorRecipe extends AbstractCookingRecipe {
     protected final Identifier unlockAdvancement;
 
     public PigmentExtractorRecipe(Identifier id, Ingredient input, ItemStack output, int growthTime, float reduplication_chance, Identifier unlockAdvancement) {
-        super(ExspRecipes.PIGMENT_EXTRACTOR_RECIPE, id, "", CookingRecipeCategory.MISC, input, output, 0.0f, growthTime);
+        super(ExspRecipes.PIGMENT_EXTRACTOR_RECIPE, id, "", input, output, 0.0f, growthTime);
         this.reduplication_chance = reduplication_chance;
         this.unlockAdvancement = unlockAdvancement;
     }

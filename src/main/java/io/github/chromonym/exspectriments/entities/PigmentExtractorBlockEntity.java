@@ -18,8 +18,8 @@ import net.minecraft.inventory.Inventory;
 import net.minecraft.inventory.SidedInventory;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NbtCompound;
+import net.minecraft.network.Packet;
 import net.minecraft.network.listener.ClientPlayPacketListener;
-import net.minecraft.network.packet.Packet;
 import net.minecraft.network.packet.s2c.play.BlockEntityUpdateS2CPacket;
 import net.minecraft.recipe.RecipeInputProvider;
 import net.minecraft.recipe.RecipeManager;
@@ -82,7 +82,9 @@ public class PigmentExtractorBlockEntity extends LockableContainerBlockEntity im
 
     @Override
     public boolean canPlayerUse(PlayerEntity player) {
-        return Inventory.canPlayerUse(this, player);
+        return this.world.getBlockEntity(this.pos) != this
+			? false
+			: player.squaredDistanceTo((double)this.pos.getX() + 0.5, (double)this.pos.getY() + 0.5, (double)this.pos.getZ() + 0.5) <= 64.0; // furnace logic :3
     }
 
     @Override
@@ -255,7 +257,7 @@ public class PigmentExtractorBlockEntity extends LockableContainerBlockEntity im
         ItemStack recipeInput = this.getStack(0);
         PigmentExtractorRecipe recipe = this.matchGetter.getFirstMatch(this, world).orElse(null);
         if (recipe != null) {
-            ItemStack recipeOutput = recipe.getOutput(null);
+            ItemStack recipeOutput = recipe.getOutput();
             InventoryHelper.addToInventory(this, recipeOutput.copy(), 2, 10);
             if (Math.random() < recipe.getReduplicationChance() && Math.signum(recipe.getReduplicationChance()) == 1) {
                 InventoryHelper.addToInventory(this, recipeInput.getItem().getDefaultStack(), 2, 10);

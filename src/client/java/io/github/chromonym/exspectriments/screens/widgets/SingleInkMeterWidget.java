@@ -12,8 +12,8 @@ import de.dafuqs.spectrum.helpers.RenderHelper;
 import de.dafuqs.spectrum.helpers.Support;
 import de.dafuqs.spectrum.inventories.widgets.StackedInkMeterWidget;
 import net.minecraft.client.MinecraftClient;
-import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.Screen;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.text.Text;
 
 public class SingleInkMeterWidget extends StackedInkMeterWidget {
@@ -26,7 +26,7 @@ public class SingleInkMeterWidget extends StackedInkMeterWidget {
    }
 
    @Override
-   public void drawMouseoverTooltip(DrawContext drawContext, int x, int y) {
+   public void drawMouseoverTooltip(MatrixStack matrices, int x, int y) {
       MinecraftClient client = MinecraftClient.getInstance();
       List<Text> tooltip = new ArrayList();
       //Iterator var3 = blockEntity.getEnergyStorage().storedEnergy.entrySet().iterator();
@@ -34,11 +34,11 @@ public class SingleInkMeterWidget extends StackedInkMeterWidget {
       //((IndividualCappedInkStorage)this.blockEntity.getEnergyStorage()).addTooltip(tooltip, false);
       tooltip.add(Text.translatable("spectrum.tooltip.ink_powered.bullet." + inkColor.toString().toLowerCase(Locale.ROOT), new Object[]{Support.getShortenedNumberString(this.blockEntity.getEnergyStorage().getEnergy(inkColor))}));
       //tooltip.add(Text.translatable("spectrum.tooltip.ink_powered.bullet." + ((InkColor)color.getKey()).toString().toLowerCase(Locale.ROOT), new Object[]{Support.getShortenedNumberString((Long)color.getValue())}));
-      drawContext.drawTooltip(client.textRenderer, tooltip, Optional.empty(), x, y);
+      this.screen.renderTooltip(matrices, tooltip, Optional.empty(), x, y);
    }
 
    @Override
-   public void draw(DrawContext drawContext) {
+   public void draw(MatrixStack matrices) {
       int startHeight = this.y + this.height;
       InkStorage inkStorage = this.blockEntity.getEnergyStorage();
       long total = inkStorage.getMaxPerColor();
@@ -48,7 +48,7 @@ public class SingleInkMeterWidget extends StackedInkMeterWidget {
       long amount = inkStorage.getEnergy(inkColor);
       if (amount > 0L) {
          int height = Math.max(1, Math.round((float)amount / ((float)total / (float)this.height)));
-         RenderHelper.fillQuad(drawContext.getMatrices(), this.x, startHeight - height, height, width, inkColor.getColor());
+         RenderHelper.fillQuad(matrices, this.x, startHeight - height, height, width, inkColor.getColor());
       }
       //}
 

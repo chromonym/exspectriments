@@ -12,7 +12,7 @@ import net.minecraft.util.Identifier;
 public class LabCoatArmorItem extends ArmorItem {
     private Identifier texture;
 
-    public LabCoatArmorItem(ArmorMaterial material, ArmorItem.Type type, Item.Settings settings, Identifier texture) {
+    public LabCoatArmorItem(ArmorMaterial material, EquipmentSlot type, Item.Settings settings, Identifier texture) {
         super(material, type, settings);
         this.texture = texture;
     }

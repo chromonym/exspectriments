@@ -1,29 +1,29 @@
 package io.github.chromonym.exspectriments.armor;
 
-import net.minecraft.item.ArmorItem;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.recipe.Ingredient;
-import net.minecraft.registry.RegistryKeys;
-import net.minecraft.registry.tag.TagKey;
 import net.minecraft.sound.SoundEvent;
 import net.minecraft.sound.SoundEvents;
+import net.minecraft.tag.TagKey;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class InvisibleArmorMaterial implements ArmorMaterial {
     @Override
-    public int getDurability(ArmorItem.Type type) {
+    public int getDurability(EquipmentSlot type) {
         int DURABILITY_MULTIPLIER = 5;
         return switch (type) {
-            case BOOTS -> 13 * DURABILITY_MULTIPLIER;
-            case LEGGINGS -> 15 * DURABILITY_MULTIPLIER;
-            case CHESTPLATE -> 16 * DURABILITY_MULTIPLIER;
-            case HELMET -> 11 * DURABILITY_MULTIPLIER;
+            case FEET -> 13 * DURABILITY_MULTIPLIER;
+            case LEGS -> 15 * DURABILITY_MULTIPLIER;
+            case CHEST -> 16 * DURABILITY_MULTIPLIER;
+            case HEAD -> 11 * DURABILITY_MULTIPLIER;
             default -> 0;
         };
     }
 
     @Override
-    public int getProtection(ArmorItem.Type type) {
+    public int getProtectionAmount(EquipmentSlot type) {
         return 1;
     }
 
@@ -39,7 +39,7 @@ public class InvisibleArmorMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.fromTag(TagKey.of(RegistryKeys.ITEM, new Identifier("c","glass_blocks")));
+        return Ingredient.fromTag(TagKey.of(Registry.ITEM_KEY, new Identifier("c","glass_blocks")));
     }
 
     @Override

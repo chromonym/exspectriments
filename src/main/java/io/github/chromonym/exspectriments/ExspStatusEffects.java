@@ -2,9 +2,8 @@ package io.github.chromonym.exspectriments;
 
 import io.github.chromonym.exspectriments.effects.*;
 import net.minecraft.entity.effect.StatusEffect;
-import net.minecraft.registry.Registries;
-import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
+import net.minecraft.util.registry.Registry;
 
 public class ExspStatusEffects {
 
@@ -14,7 +13,7 @@ public class ExspStatusEffects {
 
     public static StatusEffect register(StatusEffect effect, String id) {
         Identifier itemID = new Identifier(Exspectriments.MOD_ID, id);
-        StatusEffect registeredItem = Registry.register(Registries.STATUS_EFFECT, itemID, effect);
+        StatusEffect registeredItem = Registry.register(Registry.STATUS_EFFECT, itemID, effect);
         return registeredItem;
     }
 }

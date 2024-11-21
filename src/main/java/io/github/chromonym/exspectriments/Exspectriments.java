@@ -1,17 +1,10 @@
 package io.github.chromonym.exspectriments;
 
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
-import net.fabricmc.loader.api.FabricLoader;
-import net.mcreator.rosesutilityandloremod.init.RosesUtilityAndLoreModModTabs;
+//import net.mcreator.rosesutilityandloremod.init.RosesUtilityAndLoreModModTabs;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import de.dafuqs.fractal.api.ItemSubGroupEvents;
-import de.dafuqs.spectrum.api.item_group.ItemGroupIDs;
-import de.dafuqs.spectrum.registries.SpectrumBlocks;
-import de.dafuqs.spectrum.registries.SpectrumItems;
 
 public class Exspectriments implements ModInitializer {
 	public static final String MOD_ID = "exspectriments";
@@ -37,8 +30,9 @@ public class Exspectriments implements ModInitializer {
 		ExspItems.initialize();
 		ExspServerRecievers.registerReceivers();
 		ExspRecipes.initialize();
-		
-		ItemSubGroupEvents.modifyEntriesEvent(ItemGroupIDs.SUBTAB_RESOURCES).register(content -> {
+
+		/*SpectrumItemGroups.RESOURCES.appendStacks();
+		.modifyEntriesEvent(ItemGroupIDs.SUBTAB_RESOURCES).register(content -> {
 			content.addAfter(SpectrumBlocks.RADIATING_ENDER, ExspItems.HOSTILE_APPROXIMATOR);
 			content.addAfter(SpectrumItems.LIQUID_CRYSTAL_BUCKET,
 				ExspItems.LIQUID_TOPAZ_BUCKET,
@@ -63,13 +57,13 @@ public class Exspectriments implements ModInitializer {
 			content.addAfter(SpectrumBlocks.COLOR_PICKER,
 				ExspItems.PIGMENT_EXTRACTOR_BLOCK_ITEM,
 				ExspItems.PRINTER_BLOCK_ITEM);
-		});
+		});*/
 
-		if (FabricLoader.getInstance().isModLoaded("roses_utility_and_lore_mod")) {
+		/*if (FabricLoader.getInstance().isModLoaded("roses_utility_and_lore_mod")) {
 			ItemGroupEvents.modifyEntriesEvent(RosesUtilityAndLoreModModTabs.TAB_ROSES_THORNTILITIES).register(content -> {
 				content.add(ExspItems.LAB_COAT_ROSE); // would have done addAfter to force it at the end of the tab, but i can't do that with how mcreator adds items to tabs
 			});
-		}
+		}*/
 
 		LOGGER.info("Hello Fabric world!");
 	}

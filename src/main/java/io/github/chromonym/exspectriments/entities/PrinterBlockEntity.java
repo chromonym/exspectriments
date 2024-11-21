@@ -52,13 +52,14 @@ public class PrinterBlockEntity extends BlockEntity implements ExtendedScreenHan
         return new PrinterScreenHandler(syncId, playerInventory, this.pos, this.cyanAmount, this.magentaAmount, this.yellowAmount, this.blackAmount);
     }
 
-    public static void tick(World world, BlockPos pos, BlockState state, PrinterBlockEntity blockEntity) { // ???????
+    public static void tick(World world, BlockPos pos, BlockState state, BlockEntity blockEntity) { // ???????
         if (!world.isClient) {
-            blockEntity.inkDirty = false;
-            if (tryTransferInk(blockEntity.inventory.get(1), blockEntity)) {
-                blockEntity.updateInClientWorld();
-                blockEntity.setInkDirty();
-                blockEntity.markDirty();
+            PrinterBlockEntity pblockEntity = (PrinterBlockEntity)blockEntity;
+            pblockEntity.inkDirty = false;
+            if (tryTransferInk(pblockEntity.inventory.get(1), pblockEntity)) {
+                pblockEntity.updateInClientWorld();
+                pblockEntity.setInkDirty();
+                pblockEntity.markDirty();
             }
         }
     }

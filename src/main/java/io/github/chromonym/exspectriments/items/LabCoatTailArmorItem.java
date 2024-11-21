@@ -3,6 +3,7 @@ package io.github.chromonym.exspectriments.items;
 import java.util.List;
 
 import net.minecraft.client.item.TooltipContext;
+import net.minecraft.entity.EquipmentSlot;
 import net.minecraft.item.ArmorMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.text.Text;
@@ -11,7 +12,7 @@ import net.minecraft.util.Identifier;
 import net.minecraft.world.World;
 
 public class LabCoatTailArmorItem extends LabCoatArmorItem {
-    public LabCoatTailArmorItem(ArmorMaterial material, Type type, Settings settings, Identifier texture) {
+    public LabCoatTailArmorItem(ArmorMaterial material, EquipmentSlot type, Settings settings, Identifier texture) {
         super(material, type, settings, texture);
     }
 

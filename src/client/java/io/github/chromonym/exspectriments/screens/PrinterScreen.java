@@ -2,6 +2,8 @@ package io.github.chromonym.exspectriments.screens;
 
 import org.jetbrains.annotations.NotNull;
 
+import com.mojang.blaze3d.systems.RenderSystem;
+
 import java.util.function.Predicate;
 
 import de.dafuqs.spectrum.inventories.widgets.InkMeterWidget;
@@ -10,9 +12,10 @@ import io.github.chromonym.exspectriments.Exspectriments;
 import io.github.chromonym.exspectriments.screenhandlers.PrinterScreenHandler;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
-import net.minecraft.client.gui.DrawContext;
 import net.minecraft.client.gui.screen.ingame.HandledScreen;
 import net.minecraft.client.gui.widget.TextFieldWidget;
+import net.minecraft.client.render.GameRenderer;
+import net.minecraft.client.util.math.MatrixStack;
 import net.minecraft.entity.player.PlayerInventory;
 import net.minecraft.network.PacketByteBuf;
 import net.minecraft.text.Text;
@@ -55,21 +58,21 @@ public class PrinterScreen extends HandledScreen<PrinterScreenHandler> {
     }
 
     @Override
-    protected void drawBackground(DrawContext context, float delta, int mouseX, int mouseY) {
-        //RenderSystem.setShader(GameRenderer::getPositionTexProgram);
-        //RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
-        //RenderSystem.setShaderTexture(0, TEXTURE);
-        context.drawTexture(TEXTURE, x, y, 0, 0, backgroundWidth, backgroundHeight);
+    protected void drawBackground(MatrixStack matrices, float delta, int mouseX, int mouseY) {
+        RenderSystem.setShader(GameRenderer::getPositionTexShader);
+        RenderSystem.setShaderColor(1.0F, 1.0F, 1.0F, 1.0F);
+        RenderSystem.setShaderTexture(0, TEXTURE);
+        drawTexture(matrices, x, y, 0, 0, backgroundWidth, backgroundHeight);
         /*this.whiteMeter.draw(context);
         this.cyanMeter.draw(context);
         this.magentaMeter.draw(context);
         this.yellowMeter.draw(context);
         this.blackMeter.draw(context);*/
-        this.inkMeter.draw(context);
+        this.inkMeter.draw(matrices);
     }
 
     @Override
-    protected void drawMouseoverTooltip(DrawContext drawContext, int x, int y) {
+    protected void drawMouseoverTooltip(MatrixStack matrices, int x, int y) {
         /*if (this.whiteMeter.isMouseOver((double)x, (double)y)) {
            this.whiteMeter.drawMouseoverTooltip(drawContext, x, y);
         } else if (this.cyanMeter.isMouseOver((double)x, (double)y)) {
@@ -82,28 +85,28 @@ public class PrinterScreen extends HandledScreen<PrinterScreenHandler> {
             this.blackMeter.drawMouseoverTooltip(drawContext, x, y);
         }*/
         if (this.inkMeter.isMouseOver((double)x, (double)y)) {
-            this.inkMeter.drawMouseoverTooltip(drawContext, x, y);
+            this.inkMeter.drawMouseoverTooltip(matrices, x, y);
         } else {
-           super.drawMouseoverTooltip(drawContext, x, y);
+           super.drawMouseoverTooltip(matrices, x, y);
         }
   
      }
 
     @Override
-    public void render(DrawContext context, int mouseX, int mouseY, float delta) {
-        renderBackground(context);
-        super.render(context, mouseX, mouseY, delta);
+    public void render(MatrixStack matrices, int mouseX, int mouseY, float delta) {
+        renderBackground(matrices);
+        super.render(matrices, mouseX, mouseY, delta);
         int startX = (this.width - this.backgroundWidth) / 2;
 		int startY = (this.height - this.backgroundHeight) / 2;
-        cyanField.render(context, mouseX, mouseY, delta);
-        magentaField.render(context, mouseX, mouseY, delta);
-        yellowField.render(context, mouseX, mouseY, delta);
-        blackField.render(context, mouseX, mouseY, delta);
-        context.drawText(this.textRenderer, Text.literal("C").formatted(Formatting.DARK_AQUA), startX+33, startY+42, 2236962, false);
-        context.drawText(this.textRenderer, Text.literal("M").formatted(Formatting.LIGHT_PURPLE), startX+77, startY+42, 2236962, false);
-        context.drawText(this.textRenderer, Text.literal("Y").formatted(Formatting.GOLD), startX+33, startY+59, 2236962, false);
-        context.drawText(this.textRenderer, Text.literal("K").formatted(Formatting.BLACK), startX+77, startY+59, 2236962, false);
-        drawMouseoverTooltip(context, mouseX, mouseY);
+        cyanField.render(matrices, mouseX, mouseY, delta);
+        magentaField.render(matrices, mouseX, mouseY, delta);
+        yellowField.render(matrices, mouseX, mouseY, delta);
+        blackField.render(matrices, mouseX, mouseY, delta);
+        this.textRenderer.draw(matrices, Text.literal("C").formatted(Formatting.DARK_AQUA), startX+33, startY+42, 2236962);
+        this.textRenderer.draw(matrices, Text.literal("M").formatted(Formatting.LIGHT_PURPLE), startX+77, startY+42, 2236962);
+        this.textRenderer.draw(matrices, Text.literal("Y").formatted(Formatting.GOLD), startX+33, startY+59, 2236962);
+        this.textRenderer.draw(matrices, Text.literal("K").formatted(Formatting.BLACK), startX+77, startY+59, 2236962);
+        drawMouseoverTooltip(matrices, mouseX, mouseY);
     }
 
     private @NotNull TextFieldWidget addTextFieldWidget(int x, int y, Text text, String defaultText, Predicate<String> textPredicate) {
